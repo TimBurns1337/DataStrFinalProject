@@ -8,6 +8,13 @@ namespace DataStrFinalProject
     {
         static void Main(string[] args)
         {
+            // patterns so far 
+            // Singleton, Factory, Flyweight, adapter???(interface class)
+            // need to do decorator for main character and observer for status changes 
+
+            // data structure so far 
+            // Dictionary, List, ArrayList, Que (ned one more at leaast)
+
             EnemyModelFactory enemy = EnemyModelFactory.getEnemyModelFactory();
 
             IEnemyModel spearMan = enemy.getEnemyModel("Spear");
@@ -41,7 +48,7 @@ namespace DataStrFinalProject
             // view level enemy types 
             foreach (var item in level1)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.enemyModel.Type);
             }
 
 
@@ -52,6 +59,11 @@ namespace DataStrFinalProject
                 level1p1.Enqueue(item);
             }
 
+            // test to see if i can kill enemies 
+            foreach (var item in level1p1)
+            {
+                item.enemyModel.Health = 0;
+            }
 
             // if enemy is defeated remove from que ad to array list - dead bodies 
             ArrayList defeatedEnemies = new ArrayList();
@@ -63,11 +75,11 @@ namespace DataStrFinalProject
                 }
             }
 
+            Console.WriteLine("You have defeated this many enemies " + defeatedEnemies.Count);
             // view all enemies defeated 
-            foreach (var item in defeatedEnemies)
-            {
-                Console.WriteLine(item);
-            }
+
+            
+
 
             // levae decorator part for custimazation of main character, will starts with 5 strength, health speed for example 
             // decorator will be assigned 10 points for player to distrubute 

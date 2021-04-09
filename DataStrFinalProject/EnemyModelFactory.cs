@@ -83,6 +83,10 @@ namespace DataStrFinalProject
             Speed = speed;
             Health = health;
         }
+        public EnemyModel()
+        {
+
+        }
 
         public string Type { get; set; }
         public int Strength { get; set; }

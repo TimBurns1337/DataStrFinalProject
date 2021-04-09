@@ -40,14 +40,15 @@
     */
     public void heal()
     {
-            string Spear = "Spear";
+            string Spear = "Spear Man";
             EnemyModelFactory emf = EnemyModelFactory.getEnemyModelFactory();
-            if(Spear == emf.GetType().Name)
+            EnemyModel em = new EnemyModel();
+            if (Spear == em.Type)
             {
                 int hCheck = emf.getHealth("Spear");
                 if (enemyModel.Health == hCheck)
                 {
-                    System.Console.WriteLine(emf.GetType().Name + " man can not heal aanymore");
+                    System.Console.WriteLine(em.Type + " can not heal anymore");
                 }
                 else
                 {
