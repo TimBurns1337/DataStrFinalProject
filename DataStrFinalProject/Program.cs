@@ -8,12 +8,27 @@ namespace DataStrFinalProject
     {
         static void Main(string[] args)
         {
-            // patterns so far 
-            // Singleton, Factory, Flyweight, adapter???(interface class)
+            // Patterns so far 
+            // Singleton, Factory, Flyweight, Adapter???(interface class)
             // need to do decorator for main character and observer for status changes 
 
-            // data structure so far 
+            // Data Structure so far 
             // Dictionary, List, ArrayList, Que (ned one more at leaast)
+            // maybe we can create a stack or linked list for main charcter items
+            // maybe give five potions at start, one full heal, 4 25% heals that they can access
+            // they can also add to this equipment list as the defeat levels / bosses and get more eq
+
+            // IDEAS FOR FLOW
+            // use read line - give three option for user to enter 
+            // attack, defend(dodge), heal
+            // based on there entry changes are made 
+            // actions from enemys should be random, 
+            // need to come up with random way for them to gen actions 
+            // speed will determin which player goes first main or enemy - simple comp
+            // health, once dropped to zero, determines if you are dead or not
+            // can heal but takes a turn same as attack and defend 
+            // attack places damage on enemy, mitigated if they choose defend 
+            // defend mitages attack from enemy 
 
             EnemyModelFactory enemy = EnemyModelFactory.getEnemyModelFactory();
 
