@@ -10,11 +10,11 @@ namespace DataStrFinalProject
         {
             EnemyModelFactory enemy = EnemyModelFactory.getEnemyModelFactory();
 
-            IEnemyModel spearMan = enemy.getCraftModel("Spear");
-            IEnemyModel axeMan = enemy.getCraftModel("Axe");
-            IEnemyModel swordMan = enemy.getCraftModel("Sword");
-            IEnemyModel bowMan = enemy.getCraftModel("Bow");
-            IEnemyModel bossMan = enemy.getCraftModel("Boss"); // 2x strong or some special ability ???
+            IEnemyModel spearMan = enemy.getEnemyModel("Spear");
+            IEnemyModel axeMan = enemy.getEnemyModel("Axe");
+            IEnemyModel swordMan = enemy.getEnemyModel("Sword");
+            IEnemyModel bowMan = enemy.getEnemyModel("Bow");
+            IEnemyModel bossMan = enemy.getEnemyModel("Boss"); // 2x strong or some special ability ???
 
             List<Enemy> level1 = new List<Enemy>();
             List<Enemy> level2 = new List<Enemy>();
@@ -57,7 +57,7 @@ namespace DataStrFinalProject
             ArrayList defeatedEnemies = new ArrayList();
             foreach (var item in level1p1)
             {
-                if (item.health == 0) // if their health is equal 2 zero then add to this
+                if (item.enemyModel.Health == 0) // if their health is equal 2 zero then add to this
                 {
                     defeatedEnemies.Add(item);
                 }
