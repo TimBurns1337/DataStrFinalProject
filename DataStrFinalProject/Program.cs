@@ -6,6 +6,9 @@ namespace DataStrFinalProject
 {
     class Program
     {
+        public static string Weapon;
+        public static string Buff1;
+        public static string Buff2;
         static void Main(string[] args)
         {
             // Patterns so far 
@@ -29,6 +32,116 @@ namespace DataStrFinalProject
             // can heal but takes a turn same as attack and defend 
             // attack places damage on enemy, mitigated if they choose defend 
             // defend mitages attack from enemy 
+
+
+
+            // Main Character code below 
+            Hero myHero = new Hero(); // Hero stats will be 100, 100, 100 
+            // you can customize you hero 
+            // pick weapon and 2 buffs - damage speed or health 
+            // you can pick from spear, sword, axe or bow 
+            Console.WriteLine("Select Your weapon");
+            Console.WriteLine("Choose from 'Sword', 'Spear', 'Axe', and 'Bow'");
+           // string weapon = Console.ReadLine();
+            while (true) 
+            {
+                string weapon = Console.ReadLine();
+                if (weapon == "Sword")
+                {
+                    myHero = new Sword(myHero);
+                    Weapon = weapon; // for now - will add to hero array or list for extraction 
+                    break;
+                }
+                if (weapon == "Spear")
+                {
+                    myHero = new Spear(myHero);
+                    Weapon = weapon;
+                    break;
+                }
+                if (weapon == "Axe")
+                {
+                    myHero = new Axe(myHero);
+                    Weapon = weapon;
+                    break;
+                }
+                if (weapon == "Bow")
+                {
+                    myHero = new Bow(myHero);
+                    Weapon = weapon;
+                    break;
+                }   
+                else 
+                {
+                    Console.WriteLine("Invalid selection, please try again"); 
+                }
+            }
+            
+
+            Console.WriteLine("Choose first of two buffs to add to your character");
+            Console.WriteLine("Choose from the below\n'Unyielding strength' (+25 str) - type str\n" +
+                "'As Swift as the wind' (+25 spd) - type spd\n" + "'Holy Fortitute' (+25 hth) - type hth");
+            while (true)
+            {
+                string buff1 = Console.ReadLine();
+                if (buff1 == "str")
+                {
+                    myHero = new strBuff(myHero);
+                    Buff1 = buff1;
+                    break;
+                }
+                else if (buff1 == "spd")
+                {
+                    myHero = new spdBuff(myHero);
+                    Buff1 = buff1;
+                    break;
+                }
+                else if (buff1 == "hth")
+                {
+                    myHero = new strBuff(myHero);
+                    Buff1 = buff1;
+                    break;
+                }
+                else
+                    Console.WriteLine("please make a valid selection");
+            }
+
+            Console.WriteLine("Choose Second of two buffs to add to your character - can not repeat");
+            Console.WriteLine("Choose from the below\n'Unyielding strength' (+25 str) - type str\n" +
+                "'As Swift as the wind' (+25 spd) - type spd\n" + "'Holy Fortitute' (+25 hth) - type hth");
+            while (true)
+            {
+                string buff2 = Console.ReadLine();
+                if (buff2 == "str" && Buff1 != "str")
+                {
+                    myHero = new strBuff(myHero);
+                    Buff2 = buff2;
+                    break;
+                }
+                if (buff2 == "spd" && Buff1 != "spd")
+                {
+                    myHero = new spdBuff(myHero);
+                    Buff2 = buff2;
+                    break;
+                }
+                if (buff2 == "hth" && Buff1 != "hth")
+                {
+                    myHero = new strBuff(myHero);
+                    Buff2 = buff2;
+                    break;
+                }
+                else
+                    Console.WriteLine("please make a valid selection");
+            }
+
+            Console.WriteLine("You chose '" + Weapon + "' as your main, you have a " + Buff1 + " buff and a " + Buff2 + " buff ");
+
+
+
+
+
+
+
+            // Enemy Code below 
 
             EnemyModelFactory enemy = EnemyModelFactory.getEnemyModelFactory();
 
@@ -84,7 +197,7 @@ namespace DataStrFinalProject
             ArrayList defeatedEnemies = new ArrayList();
             foreach (var item in level1p1)
             {
-                if (item.enemyModel.Health == 0) // if their health is equal 2 zero then add to this
+                if (item.enemyModel.Health == 0) // if their health is equal to zero then add to this
                 {
                     defeatedEnemies.Add(item);
                 }
