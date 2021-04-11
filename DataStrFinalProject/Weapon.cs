@@ -1,0 +1,16 @@
+﻿namespace DataStrFinalProject
+{
+    internal abstract class Weapon : Hero
+    {
+        public abstract string HeroType { get; set; }
+        public abstract int Strength { get; set; }
+        public abstract int Speed { get; set; }
+        public abstract int Health { get; set; }
+
+        public abstract int getHeroHth();
+        public abstract int getHeroSpd();
+        public abstract void getHeroStats();
+        public abstract int getHeroStr();
+        public abstract string getHeroType();
+    }
+}
