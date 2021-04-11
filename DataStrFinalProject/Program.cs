@@ -46,7 +46,8 @@ namespace DataStrFinalProject
                 string sex = Console.ReadLine();
                 if (sex == "m")
                 {
-                    myHero = new maleHero();                    
+                    //myHero = new maleHero();
+                    myHero = new maleHero(name);
                     break;
                 }
                 if (sex == "f")
@@ -123,8 +124,7 @@ namespace DataStrFinalProject
                 if (buff1 == "str")
                 {
                     myHero = new strBuff(myHero);
-                    Buff1 = buff1;
-                    //myHero.Strength += 25;
+                    Buff1 = buff1;                    
                     break;
                 }
                 else if (buff1 == "spd")
@@ -142,7 +142,7 @@ namespace DataStrFinalProject
                 else
                     Console.WriteLine("please make a valid selection");
             }
-            
+            Console.WriteLine("The name and class of your hero is " + myHero.getHeroType());
             Console.WriteLine("Your current strength is " + myHero.getHeroStr());
             Console.WriteLine("Your current speed is " + myHero.getHeroSpd());
             Console.WriteLine(myHero.Strength + " " + myHero.Speed);
