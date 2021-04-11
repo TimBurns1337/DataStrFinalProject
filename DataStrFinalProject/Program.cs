@@ -122,7 +122,7 @@ namespace DataStrFinalProject
                 string buff1 = Console.ReadLine();
                 if (buff1 == "str")
                 {
-                    //myHero = new strBuff(myHero);
+                    myHero = new strBuff(myHero);
                     Buff1 = buff1;
                     //myHero.Strength += 25;
                     break;
