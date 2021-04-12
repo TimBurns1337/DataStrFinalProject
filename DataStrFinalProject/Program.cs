@@ -13,11 +13,12 @@ namespace DataStrFinalProject
         {
             // Patterns so far 
             // Singleton, Factory, Flyweight, Adapter???(interface class)
-            // need to do decorator for main character and observer for status changes 
+            // decorator done for main character 
+            // need to do observer for status changes 
 
             // Data Structure so far 
-            // Dictionary, List, ArrayList, Que (ned one more at leaast)
-            // maybe we can create a stack or linked list for main charcter items
+            // Dictionary, List, ArrayList, Que (need one more at least)
+            // maybe we can create a stack or linked list for main charcter items???
             // maybe give five potions at start, one full heal, 4 25% heals that they can access
             // they can also add to this equipment list as the defeat levels / bosses and get more eq
 
