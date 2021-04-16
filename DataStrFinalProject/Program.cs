@@ -105,16 +105,17 @@ namespace DataStrFinalProject
                 }
             }
 
-            myHero.getHeroStats(); // not working properly does not work below
+            myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
+            //myHero.getHeroStats(); // not working properly does not work below
             // may not work great - mayb eprint individually so u can add to it 
             //Console.WriteLine("Your current strength is " + myHero.getHeroStr());
-            
+
             //Console.WriteLine("test string " + myHero.HeroType + " " + myHero.Strength.ToString() + " ");
 
-            
-             
-           
-            
+
+
+
+
             Console.WriteLine("Choose first of two buffs to add to your character");
             Console.WriteLine("Choose from the below\n'Unyielding strength' (+25 str) - type str\n" +
                 "'As Swift as the wind' (+25 spd) - type spd\n" + "'Holy Fortitute' (+25 hth) - type hth");
@@ -142,10 +143,10 @@ namespace DataStrFinalProject
                 else
                     Console.WriteLine("please make a valid selection");
             }
-            Console.WriteLine("The name and class of your hero is " + myHero.getHeroType());
-            Console.WriteLine("Your current strength is " + myHero.getHeroStr());
-            Console.WriteLine("Your current speed is " + myHero.getHeroSpd());
-            Console.WriteLine(myHero.Strength + " " + myHero.Speed);
+            //Console.WriteLine("The name and class of your hero is " + myHero.getHeroType());
+            //Console.WriteLine("Your current strength is " + myHero.getHeroStr());
+            //Console.WriteLine("Your current speed is " + myHero.getHeroSpd());
+            //Console.WriteLine(myHero.Strength + " " + myHero.Speed);
             
                     
             
@@ -181,11 +182,14 @@ namespace DataStrFinalProject
             //myHero.getHeroStats(); // not working here 
             //Console.WriteLine("test");
 
-            Console.WriteLine("The name and class of your hero is " + myHero.getHeroType());
-            Console.WriteLine("Your current strength is " + myHero.getHeroStr());
-            Console.WriteLine("Your current speed is " + myHero.getHeroSpd());
-            Console.WriteLine(myHero.Strength + " " + myHero.Speed);
-
+            //Console.WriteLine("The name and class of your hero is " + myHero.getHeroType());
+            //Console.WriteLine("Your current strength is " + myHero.getHeroStr());
+            //Console.WriteLine("Your current speed is " + myHero.getHeroSpd());
+            //Console.WriteLine(myHero.Strength + " " + myHero.Speed);
+            //Console.WriteLine("");
+            int str = myHero.getHeroStr();
+            int spd = myHero.getHeroSpd();
+            myHero.getHeroStats(str, spd, myHero.Health);
 
             /*
 

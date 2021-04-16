@@ -1,4 +1,6 @@
-﻿namespace DataStrFinalProject
+﻿using System;
+
+namespace DataStrFinalProject
 {
     internal class Sword : Weapon
     {
@@ -16,7 +18,7 @@
 
         public override int getHeroHth()
         {
-            throw new System.NotImplementedException();
+            return myHero.Health + hthBuff.Hth;
         }
 
         public override int getHeroSpd()
@@ -24,11 +26,16 @@
             return myHero.Speed + spdBuff.Spd;
         }
 
-        public override void getHeroStats()
+        public override void getHeroStats(int strength, int speed, int health)
         {
-            System.Console.WriteLine("print 1 test" + myHero.HeroType + " Strength:" + myHero.Strength.ToString() +
+            myHero.Strength = strength;
+            myHero.Speed = speed;
+            myHero.Health = health;           
+            
+            System.Console.WriteLine("Hero Name: " + myHero.HeroName + " Hero Type: " + myHero.HeroType + " Strength:" + myHero.Strength.ToString() +
                 " Speed:" + myHero.Speed.ToString() + " Health:" + myHero.Health.ToString());
-        }
+            
+        }      
 
         public override int getHeroStr()
         {            
@@ -37,7 +44,7 @@
 
         public override string getHeroType()
         {
-            return myHero.HeroName + " a " + myHero.HeroType; 
+            return  myHero.HeroType; 
         }
 
         public override string getHeroName()

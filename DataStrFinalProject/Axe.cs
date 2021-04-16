@@ -23,7 +23,7 @@
             return myHero.Speed + spdBuff.Spd;
         }
 
-        public override void getHeroStats()
+        public override void getHeroStats(int strength, int speed, int health)
         {
             System.Console.WriteLine("print 1 test" + myHero.HeroType + " Strength:" + myHero.Strength.ToString() +
                 " Speed:" + myHero.Speed.ToString() + " Health:" + myHero.Health.ToString());

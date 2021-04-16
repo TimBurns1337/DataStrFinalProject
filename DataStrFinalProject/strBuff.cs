@@ -10,10 +10,15 @@
             this.myHero = myHero;
             Stren = 25;
         }
-        public override void getHeroStats()
+        public override void getHeroStats(int strength, int speed, int health)
         {
-            System.Console.WriteLine("Hero type: " + myHero.getHeroType() + " Strength:" + myHero.Health.ToString() +
-               " Speed:" + myHero.getHeroSpd() + " Health:" + myHero.Health.ToString());
+            myHero.Strength = strength;
+            myHero.Speed = speed;
+            myHero.Health = health;
+            //testfunc();
+
+            System.Console.WriteLine("Hero Name: " + myHero.HeroName + " Hero Type: " + myHero.HeroType + " Strength:" + myHero.Strength.ToString() +
+                " Speed:" + myHero.Speed.ToString() + " Health:" + myHero.Health.ToString());
         }
 
         public override int getHeroStr()
@@ -35,7 +40,7 @@
         }
         public override string getHeroName()
         {
-            return myHero.getHeroType();
+            return myHero.getHeroName();
         }
         public override string HeroType { get => getHeroType(); set => getHeroType(); }
         public override int Strength { get => getHeroStr(); set => getHeroStr(); }

@@ -14,7 +14,7 @@
         public int Health { get; set; }
         public string HeroName { get; set; }
 
-        public void getHeroStats()
+        public void getHeroStats(int strength, int speed, int health)
         {
             
         }

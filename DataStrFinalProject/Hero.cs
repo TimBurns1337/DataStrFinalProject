@@ -8,7 +8,7 @@
         public int Speed { get; set; }
         public int Health { get; set; }
         string getHeroName();
-        void getHeroStats();
+        void getHeroStats(int strength, int speed, int health);
         string getHeroType();
         int getHeroStr();
         int getHeroSpd();
