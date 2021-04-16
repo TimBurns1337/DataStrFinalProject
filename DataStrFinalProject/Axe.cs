@@ -1,40 +1,53 @@
 ﻿namespace DataStrFinalProject
 {
-    internal class Axe : Hero
+    internal class Axe : Weapon
     {
         private Hero myHero;
 
         public Axe(Hero myHero)
         {
+            this.myHero = myHero;
             myHero.Strength = 140;
             myHero.Speed = 120;
             myHero.Health = 150;
             myHero.HeroType = "Axe Man";
         }
-        public void getHeroStats() 
+
+        public override int getHeroHth()
         {
-            System.Console.WriteLine(myHero.HeroType + " Strength:" + myHero.Health.ToString() +
-                 " Speed:" + myHero.Speed.ToString() + " Health:" + myHero.Health.ToString());
+            throw new System.NotImplementedException();
         }
-        string Hero.getHeroType()
+
+        public override int getHeroSpd()
         {
-            return HeroType;
+            return myHero.Speed + spdBuff.Spd;
         }
-        int Hero.getHeroStr()
+
+        public override void getHeroStats()
         {
-            return Strength;
+            System.Console.WriteLine("print 1 test" + myHero.HeroType + " Strength:" + myHero.Strength.ToString() +
+                " Speed:" + myHero.Speed.ToString() + " Health:" + myHero.Health.ToString());
         }
-        int Hero.getHeroSpd()
+
+        public override int getHeroStr()
         {
-            return Speed;
+            return myHero.Strength + strBuff.Stren;
         }
-        int Hero.getHeroHth()
+
+        public override string getHeroType()
         {
-            return Health;
+            return myHero.HeroName + " a " + myHero.HeroType; // need to fix for women 
         }
-        public string HeroType { get; set; }
-        public int Strength { get; set; }
-        public int Speed { get; set; }
-        public int Health { get; set; }
+
+        public override string getHeroName()
+        {
+            return myHero.HeroName;
+        }
+
+        public override string HeroType { get => getHeroType(); set => getHeroType(); }
+        public override int Strength { get => getHeroStr(); set => getHeroStr(); }
+        public override int Speed { get => getHeroSpd(); set => getHeroSpd(); }
+        public override int Health { get => getHeroHth(); set => getHeroHth(); }
+        public override string HeroName { get => getHeroName(); set => getHeroName(); }
     }
 }

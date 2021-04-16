@@ -35,8 +35,7 @@ namespace DataStrFinalProject
             // defend mitages attack from enemy 
 
 
-            Hero myHero;
-            
+            Hero myHero;            
             
             // Main Character code below 
             Console.WriteLine("Enter your Hero Name");
@@ -53,7 +52,7 @@ namespace DataStrFinalProject
                 }
                 if (sex == "f")
                 {
-                    myHero = new femaleHero();                    
+                    myHero = new femaleHero(name);                    
                     break;
                 }                
                 else
@@ -149,7 +148,7 @@ namespace DataStrFinalProject
             Console.WriteLine(myHero.Strength + " " + myHero.Speed);
             
                     
-            /*
+            
             Console.WriteLine("Choose Second of two buffs to add to your character - can not repeat");
             Console.WriteLine("Choose from the below\n'Unyielding strength' (+25 str) - type str\n" +
                 "'As Swift as the wind' (+25 spd) - type spd\n" + "'Holy Fortitute' (+25 hth) - type hth");
@@ -159,29 +158,34 @@ namespace DataStrFinalProject
                 if (buff2 == "str" && Buff1 != "str")
                 {
                     myHero = new strBuff(myHero);
-                    Buff2 = buff2;
+                    //Buff2 = buff2;
                     break;
                 }
                 if (buff2 == "spd" && Buff1 != "spd")
                 {
                     myHero = new spdBuff(myHero);
-                    Buff2 = buff2;
+                    //Buff2 = buff2;
                     break;
                 }
                 if (buff2 == "hth" && Buff1 != "hth")
                 {
                     myHero = new strBuff(myHero);
-                    Buff2 = buff2;
+                    //Buff2 = buff2;
                     break;
                 }
                 else
                     Console.WriteLine("please make a valid selection");
             }
 
-            Console.WriteLine("You chose '" + Weapon + "' as your main, you have a " + Buff1 + " buff and a " + Buff2 + " buff ");
-            myHero.getHeroStats(); // not working here 
-            Console.WriteLine("test");
-            
+            //Console.WriteLine("You chose '" + Weapon + "' as your main, you have a " + Buff1 + " buff and a " + Buff2 + " buff ");
+            //myHero.getHeroStats(); // not working here 
+            //Console.WriteLine("test");
+
+            Console.WriteLine("The name and class of your hero is " + myHero.getHeroType());
+            Console.WriteLine("Your current strength is " + myHero.getHeroStr());
+            Console.WriteLine("Your current speed is " + myHero.getHeroSpd());
+            Console.WriteLine(myHero.Strength + " " + myHero.Speed);
+
 
             /*
 

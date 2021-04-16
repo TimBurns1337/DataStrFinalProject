@@ -29,9 +29,16 @@
         {
             return Health;
         }
+
+        string Hero.getHeroName()
+        {
+            return HeroName;
+        }
+
         public string HeroType { get; set; }
         public int Strength { get; set; }
         public int Speed { get; set; }
         public int Health { get; set; }
+        public string HeroName { get; set; }
     }
 }

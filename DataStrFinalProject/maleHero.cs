@@ -5,14 +5,14 @@
         
         public maleHero(string name)
         {
-            Name = name;
+            HeroName = name;
         }
 
         public string HeroType { get; set; }
         public int Strength { get; set; }
         public int Speed { get; set; }
         public int Health { get; set; }
-        public static string Name;
+        public string HeroName { get; set; }
 
         public void getHeroStats()
         {
@@ -20,7 +20,7 @@
         }
         string Hero.getHeroType()
         {
-            return Name + " " + HeroType;
+            return HeroName + " " + HeroType;
         }
         int Hero.getHeroStr()
         {
@@ -33,6 +33,11 @@
         int Hero.getHeroHth()
         {
             return Health;
+        }
+
+        string Hero.getHeroName()
+        {
+            return HeroName;
         }
     }
 }

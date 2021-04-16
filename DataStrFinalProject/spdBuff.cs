@@ -31,11 +31,18 @@
 
         public override string getHeroType()
         {
-            return HeroType;
-        }        
-        public override string HeroType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+            return myHero.getHeroType();
+        }
+
+        public override string getHeroName()
+        {
+            return myHero.getHeroType();
+        }
+
+        public override string HeroType { get => getHeroType(); set => getHeroType(); }
         public override int Strength { get => getHeroStr(); set => getHeroStr(); }
         public override int Speed { get => getHeroSpd(); set => getHeroSpd(); }
-        public override int Health { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public override int Health { get => getHeroHth(); set => getHeroHth(); }
+        public override string HeroName { get => getHeroName(); set => getHeroName(); }
     }
 }

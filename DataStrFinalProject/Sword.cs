@@ -11,6 +11,7 @@
             myHero.Speed = 120;
             myHero.Health = 150;
             myHero.HeroType = "Sword Man";
+            myHero.HeroName = myHero.getHeroName(); // testing 
         }              
 
         public override int getHeroHth()
@@ -36,12 +37,18 @@
 
         public override string getHeroType()
         {
-            return maleHero.Name + " a " + myHero.HeroType;
+            return myHero.HeroName + " a " + myHero.HeroType; 
         }
-       
+
+        public override string getHeroName()
+        {
+            return myHero.HeroName;
+        }
+
         public override string HeroType { get => getHeroType(); set => getHeroType(); }
         public override int Strength { get => getHeroStr(); set => getHeroStr(); }
         public override int Speed { get => getHeroSpd(); set => getHeroSpd(); }
-        public override int Health { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public override int Health { get => getHeroHth(); set => getHeroHth(); }
+        public override string HeroName { get => getHeroName(); set => getHeroName(); }
     }
 }
