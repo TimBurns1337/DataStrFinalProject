@@ -15,7 +15,7 @@
 
         public override int getHeroHth()
         {
-            throw new System.NotImplementedException();
+            return myHero.Health + hthBuff.Hth;
         }
 
         public override int getHeroSpd()

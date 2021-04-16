@@ -45,8 +45,7 @@ namespace DataStrFinalProject
             {
                 string sex = Console.ReadLine();
                 if (sex == "m")
-                {
-                    //myHero = new maleHero();
+                {                    
                     myHero = new maleHero(name);
                     break;
                 }
@@ -60,25 +59,18 @@ namespace DataStrFinalProject
                     Console.WriteLine("Invalid selection, please try again");
                 }
             }
-
-            
-
-
-
-
             // you can customize you hero 
             // pick weapon and 2 buffs - damage speed or health 
             // you can pick from spear, sword, axe or bow 
             Console.WriteLine("Select Your weapon");
-            Console.WriteLine("Choose from 'Sword', 'Spear', 'Axe', and 'Bow'");
-           // string weapon = Console.ReadLine();
+            Console.WriteLine("Choose from 'Sword', 'Spear', 'Axe', and 'Bow'");           
             while (true) 
             {
                 string weapon = Console.ReadLine();
                 if (weapon == "Sword")
                 {
                     myHero = new Sword(myHero);
-                    Weapon = weapon; // for now - will add to hero array or list for extraction
+                    Weapon = weapon; 
                     break;
                 }
                 if (weapon == "Spear")
@@ -106,15 +98,6 @@ namespace DataStrFinalProject
             }
 
             myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
-            //myHero.getHeroStats(); // not working properly does not work below
-            // may not work great - mayb eprint individually so u can add to it 
-            //Console.WriteLine("Your current strength is " + myHero.getHeroStr());
-
-            //Console.WriteLine("test string " + myHero.HeroType + " " + myHero.Strength.ToString() + " ");
-
-
-
-
 
             Console.WriteLine("Choose first of two buffs to add to your character");
             Console.WriteLine("Choose from the below\n'Unyielding strength' (+25 str) - type str\n" +
@@ -136,20 +119,17 @@ namespace DataStrFinalProject
                 }
                 else if (buff1 == "hth")
                 {
-                    myHero = new strBuff(myHero);
+                    myHero = new hthBuff(myHero);
                     Buff1 = buff1;
                     break;
                 }
                 else
                     Console.WriteLine("please make a valid selection");
             }
-            //Console.WriteLine("The name and class of your hero is " + myHero.getHeroType());
-            //Console.WriteLine("Your current strength is " + myHero.getHeroStr());
-            //Console.WriteLine("Your current speed is " + myHero.getHeroSpd());
-            //Console.WriteLine(myHero.Strength + " " + myHero.Speed);
-            
-                    
-            
+            myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
+
+
+
             Console.WriteLine("Choose Second of two buffs to add to your character - can not repeat");
             Console.WriteLine("Choose from the below\n'Unyielding strength' (+25 str) - type str\n" +
                 "'As Swift as the wind' (+25 spd) - type spd\n" + "'Holy Fortitute' (+25 hth) - type hth");
@@ -170,34 +150,16 @@ namespace DataStrFinalProject
                 }
                 if (buff2 == "hth" && Buff1 != "hth")
                 {
-                    myHero = new strBuff(myHero);
+                    myHero = new hthBuff(myHero);
                     //Buff2 = buff2;
                     break;
                 }
                 else
                     Console.WriteLine("please make a valid selection");
-            }
-
-            //Console.WriteLine("You chose '" + Weapon + "' as your main, you have a " + Buff1 + " buff and a " + Buff2 + " buff ");
-            //myHero.getHeroStats(); // not working here 
-            //Console.WriteLine("test");
-
-            //Console.WriteLine("The name and class of your hero is " + myHero.getHeroType());
-            //Console.WriteLine("Your current strength is " + myHero.getHeroStr());
-            //Console.WriteLine("Your current speed is " + myHero.getHeroSpd());
-            //Console.WriteLine(myHero.Strength + " " + myHero.Speed);
-            //Console.WriteLine("");
-            int str = myHero.getHeroStr();
-            int spd = myHero.getHeroSpd();
-            myHero.getHeroStats(str, spd, myHero.Health);
+            } 
+            myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
 
             /*
-
-
-
-
-
-
             // Enemy Code below 
 
             EnemyModelFactory enemy = EnemyModelFactory.getEnemyModelFactory();
