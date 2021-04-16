@@ -35,6 +35,12 @@ namespace DataStrFinalProject
             // defend mitages attack from enemy 
 
 
+            // NEED TO DO
+            // need to find a way in whcih they fight, maybe a array with only two indexs
+            // when one slot is emptied it is filled from que ?
+            // test whether hero helath end enemy health is zero?
+
+
             Hero myHero;            
             
             // Main Character code below 
@@ -159,8 +165,9 @@ namespace DataStrFinalProject
             } 
             myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
 
-            /*
+            
             // Enemy Code below 
+            /*
 
             EnemyModelFactory enemy = EnemyModelFactory.getEnemyModelFactory();
 

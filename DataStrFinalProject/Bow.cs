@@ -15,7 +15,7 @@
 
         public override int getHeroHth()
         {
-            throw new System.NotImplementedException();
+            return myHero.Health + hthBuff.Hth;
         }
 
         public override int getHeroSpd()
@@ -36,7 +36,7 @@
 
         public override string getHeroType()
         {
-            return myHero.HeroName + " a " + myHero.HeroType; // need to fix for women 
+            return myHero.HeroName + " a " + myHero.HeroType; 
         }
         public override string getHeroName()
         {
