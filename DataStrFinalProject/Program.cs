@@ -11,6 +11,8 @@ namespace DataStrFinalProject
         //public static string Buff2;        
         static void Main(string[] args)
         {
+            // TEST
+
             // Patterns so far 
             // Singleton, Factory, Flyweight, Adapter???(interface class)
             // decorator done for main character 
