@@ -12,7 +12,7 @@ namespace DataStrFinalProject
         static void Main(string[] args)
         {
             // TEST 2
-            // hi
+            // hi - Hello there 
             // Patterns so far 
             // Singleton, Factory, Flyweight, Adapter???(interface class)
             // decorator done for main character 
