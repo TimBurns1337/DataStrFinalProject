@@ -7,8 +7,8 @@
         public Bow(Hero myHero)
         {
             this.myHero = myHero;
-            myHero.Strength = 140;
-            myHero.Speed = 120;
+            myHero.Strength = 100;
+            myHero.Speed = 160;
             myHero.Health = 150;
             myHero.HeroType = "Bow Man";
         }

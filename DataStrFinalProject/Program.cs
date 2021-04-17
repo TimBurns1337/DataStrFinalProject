@@ -167,7 +167,7 @@ namespace DataStrFinalProject
 
             
             // Enemy Code below 
-            /*
+            
 
             EnemyModelFactory enemy = EnemyModelFactory.getEnemyModelFactory();
 
@@ -181,19 +181,19 @@ namespace DataStrFinalProject
             List<Enemy> level2 = new List<Enemy>();
             List<Enemy> level3 = new List<Enemy>();
 
-            level1.Add(new Enemy(spearMan, 0,0,0)); // 0 0 are modifers to strength, speed and health ???
+            level1.Add(new Enemy(spearMan, 0, 0, 0)); // are modifers to strength, speed and health ???
             level1.Add(new Enemy(axeMan, 0, 0, 0));
             level1.Add(new Enemy(swordMan, 0, 0, 0));
             level1.Add(new Enemy(bowMan, 0, 0, 0));
             level1.Add(new Enemy(bossMan, 0, 0, 0)); // no mods for level 1 
 
-            level2.Add(new Enemy(spearMan, 1, 1, 1)); // 1x stronger
+            level2.Add(new Enemy(spearMan, 1, 1, 1)); // increase by 1
             level2.Add(new Enemy(axeMan, 1, 1, 1));
             level2.Add(new Enemy(swordMan, 1, 1, 1));
             level2.Add(new Enemy(bowMan, 1, 1, 1));
             level2.Add(new Enemy(bossMan, 1, 1, 1)); 
 
-            level3.Add(new Enemy(spearMan, 2, 2, 2)); // 2x strong
+            level3.Add(new Enemy(spearMan, 2, 2, 2)); // increase by 2 
             level3.Add(new Enemy(axeMan, 2, 2, 2));
             level3.Add(new Enemy(swordMan, 2, 2, 2));
             level3.Add(new Enemy(bowMan, 2, 2, 2));
@@ -212,6 +212,24 @@ namespace DataStrFinalProject
             {
                 level1p1.Enqueue(item);
             }
+
+            //
+            // List -  add the hero and one enemy to alost at a time
+            // take turns 
+            // do while perosn has health 
+            // read line (attack or heal)
+            // attack roll and damage roll 
+            // attack roll will test if its faster than the person speed value
+            // roll dice for example to generate random number and if number is higher than speed then attack will hit 
+            // trigger attack 
+            
+            // attack() if value higher than spd value then it hits and clalls damage 
+            // damage() random number from 10-30 taken from healthpoints of that person 
+            // after beat level you will be awarede a power up - 
+            // random bonus to hth spd or str 
+
+
+
 
             // test to see if i can kill enemies 
             foreach (var item in level1p1)
@@ -240,7 +258,7 @@ namespace DataStrFinalProject
             // enemies should be standard and can add modifiers 
             
 
-            */
+            
         }
     }
 }

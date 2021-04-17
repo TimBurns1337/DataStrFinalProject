@@ -7,8 +7,8 @@
         public Axe(Hero myHero)
         {
             this.myHero = myHero;
-            myHero.Strength = 140;
-            myHero.Speed = 120;
+            myHero.Strength = 160;
+            myHero.Speed = 100;
             myHero.Health = 150;
             myHero.HeroType = "Axe Man";
         }
