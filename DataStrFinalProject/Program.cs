@@ -259,15 +259,37 @@ namespace DataStrFinalProject
             Console.WriteLine("You have defeated this many enemies " + defeatedEnemies.Count);
             // view all enemies defeated 
 
-            
+
 
 
             // levae decorator part for custimazation of main character, will starts with 5 strength, health speed for example 
             // decorator will be assigned 10 points for player to distrubute 
             // enemies should be standard and can add modifiers 
-            
 
+            Battle(myHero, level1[0]);
             
+        }
+        private static void Battle(Hero myHero, Enemy enemy)
+        {
+            int hhp = myHero.Health;
+            int ehp = enemy.Health;
+            int i = (myHero.Speed >= enemy.Speed) ? 2 : 0;
+
+            Random rd = new Random();
+
+            do
+            {
+                if (i % 2 == 0) //when i is even, which means the hero's turn to attack
+                {
+                    ehp -= myHero.Strength;
+                    i++;
+                }
+                if(i%2 == 1) //when i is dd, which means the enemy's turn to attack
+                {
+                    hhp -= enemy.Strength;
+                    i++;
+                }
+            } while (hhp>0 || ehp>0);
         }
     }
 }
