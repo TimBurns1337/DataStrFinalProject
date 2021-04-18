@@ -47,11 +47,13 @@ namespace DataStrFinalProject
             
             // Main Character code below 
             Console.WriteLine("Enter your Hero Name");
-            string name = Console.ReadLine();
+            //string name = Console.ReadLine();
+            string name = "Hero2077";
             Console.WriteLine("Choose your sex- m or f");
             while (true)
             {
-                string sex = Console.ReadLine();
+                //string sex = Console.ReadLine();
+                string sex = "m";
                 if (sex == "m")
                 {                    
                     myHero = new maleHero(name);
@@ -74,7 +76,8 @@ namespace DataStrFinalProject
             Console.WriteLine("Choose from 'Sword', 'Spear', 'Axe', and 'Bow'");           
             while (true) 
             {
-                string weapon = Console.ReadLine();
+                //string weapon = Console.ReadLine();
+                string weapon = "Sword";
                 if (weapon == "Sword")
                 {
                     myHero = new Sword(myHero);
@@ -112,7 +115,8 @@ namespace DataStrFinalProject
                 "'As Swift as the wind' (+25 spd) - type spd\n" + "'Holy Fortitute' (+25 hth) - type hth");
             while (true)
             {
-                string buff1 = Console.ReadLine();
+                //string buff1 = Console.ReadLine();
+                string buff1 = "str";
                 if (buff1 == "str")
                 {
                     myHero = new strBuff(myHero);
@@ -143,7 +147,8 @@ namespace DataStrFinalProject
                 "'As Swift as the wind' (+25 spd) - type spd\n" + "'Holy Fortitute' (+25 hth) - type hth");
             while (true)
             {
-                string buff2 = Console.ReadLine();
+                //string buff2 = Console.ReadLine();
+                string buff2 = "hth";
                 if (buff2 == "str" && Buff1 != "str")
                 {
                     myHero = new strBuff(myHero);
@@ -201,10 +206,12 @@ namespace DataStrFinalProject
             level3.Add(new Enemy(bowMan, 2, 2, 2));
             level3.Add(new Enemy(bossMan, 2, 2, 2));
 
+            Console.WriteLine(level1[0].Type);
+
             // view level enemy types 
             foreach (var item in level1)
             {
-                Console.WriteLine(item.enemyModel.Type);
+                Console.WriteLine(item.EnemyModel.Type);
             }
 
 
@@ -236,14 +243,14 @@ namespace DataStrFinalProject
             // test to see if i can kill enemies 
             foreach (var item in level1p1)
             {
-                item.enemyModel.Health = 0;
+                item.EnemyModel.Health = 0;
             }
 
             // if enemy is defeated remove from que ad to array list - dead bodies 
             ArrayList defeatedEnemies = new ArrayList();
             foreach (var item in level1p1)
             {
-                if (item.enemyModel.Health == 0) // if their health is equal to zero then add to this
+                if (item.EnemyModel.Health == 0) // if their health is equal to zero then add to this
                 {
                     defeatedEnemies.Add(item);
                 }
