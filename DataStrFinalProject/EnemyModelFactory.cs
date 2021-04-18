@@ -46,51 +46,52 @@ namespace DataStrFinalProject
         {
         }
 
-        public int getHealth(string type)
+        //    public int getHealth(string type)
+        //    {
+        //        int health;
+        //        switch (type)
+        //        {
+        //            case "Spear":
+        //                health = 75 + Enemy.HTHBuff;
+        //                break;
+        //            case "Axe":
+        //                health = 85 + Enemy.HTHBuff;
+        //                break;
+        //            case "Sword":
+        //                health = 80 + Enemy.HTHBuff;
+        //                break;
+        //            case "Bow":
+        //                health = 50 + Enemy.HTHBuff;
+        //                break;
+        //            case "Boss":
+        //                health = 150 + Enemy.HTHBuff;
+        //                break;
+        //            default:
+        //                health = 0;
+        //                break;
+        //        }
+        //        return health;
+        //    }
+        //}
+
+        internal class EnemyModel : IEnemyModel
         {
-            int health;
-            switch (type)
+            public EnemyModel(string type, int strength, int speed, int health)
             {
-                case "Spear":
-                    health = 75 + Enemy.HTHBuff;
-                    break;
-                case "Axe":
-                    health = 85 + Enemy.HTHBuff;
-                    break;
-                case "Sword":
-                    health = 80 + Enemy.HTHBuff;
-                    break;
-                case "Bow":
-                    health = 50 + Enemy.HTHBuff;
-                    break;
-                case "Boss":
-                    health = 150 + Enemy.HTHBuff;
-                    break;
-                default:
-                    health = 0;
-                    break;
+                Type = type;
+                Strength = strength;
+                Speed = speed;
+                Health = health;
             }
-            return health;
-        }
-    }
+            public EnemyModel()
+            {
 
-    internal class EnemyModel : IEnemyModel
-    {
-        public EnemyModel(string type, int strength, int speed, int health)
-        {
-            Type = type;
-            Strength = strength;
-            Speed = speed;
-            Health = health;
-        }
-        public EnemyModel()
-        {
+            }
 
+            public string Type { get; set; }
+            public int Strength { get; set; }
+            public int Speed { get; set; }
+            public int Health { get; set; }
         }
-
-        public string Type { get; set; }
-        public int Strength { get; set; }
-        public int Speed { get; set; }
-        public int Health { get; set; }
     }
 }

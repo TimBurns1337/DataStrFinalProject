@@ -206,7 +206,7 @@ namespace DataStrFinalProject
             level3.Add(new Enemy(bowMan, 2, 2, 2));
             level3.Add(new Enemy(bossMan, 2, 2, 2));
 
-            Console.WriteLine(level1[0].Type);
+            Console.WriteLine("Test: "+level3[0].Strength);
 
             // view level enemy types 
             foreach (var item in level1)
