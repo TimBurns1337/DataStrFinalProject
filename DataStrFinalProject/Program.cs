@@ -207,16 +207,15 @@ namespace DataStrFinalProject
             level3.Add(new Enemy(bossMan, 2, 2, 2));
 
 
-            //still trying out how to 
-            Console.WriteLine("Test: "+level3[0].Strength);
 
-            Console.WriteLine("##############################################################");
-            String tester = Battle(myHero, level1[0]);
+            Console.WriteLine("###########################Test###########################");
+            String tester = Battle(myHero, level2[0]);
             Console.WriteLine(tester);
-            Console.WriteLine("HEROTYPE: " + myHero.HeroType);
-            Console.WriteLine("enemyTYPE: " + level1[0].Type);
+            myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
+            Console.WriteLine("enemyTYPE: " + level2[0].Type);
 
-            Console.WriteLine("enemy hth: "); //need a way to find enemy health.
+            Console.WriteLine("enemy str: "+enemy.); //need a way to find enemy health.
+            Console.WriteLine();
 
 
 
@@ -304,16 +303,20 @@ namespace DataStrFinalProject
             {
                 if (i % 2 == 0) //when i is even, which means the hero's turn to attack
                 {
-                    int damage = (int)(myHero.Strength * (rd.Next(3, 7) / 5) * weaponModifier);
+                    double random = (double)rd.Next(3, 7) / 5;
+                    int damage = (int)(myHero.Strength * random * weaponModifier);
                     ehp -= damage; // character Strength * (random strenth muliplier from 0.6X to 1.2X) * Weapon type modifier
                     Console.WriteLine("Hero attacked and cause {0} to the enemy", damage);
+                    Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
                     i++;
                 }
                 else //when i is odd, which means the enemy's turn to attack
                 {
-                    int damage = (int)(enemy.Strength * (rd.Next(3, 7) / 5) * weaponModifier);
+                    double random = (rd.Next(3, 7) / 5);
+                    int damage = (int)(enemy.Strength * random * weaponModifier);
                     hhp -= damage;
                     Console.WriteLine("The enemy cause {0} to our hero", damage);
+                    Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
                     i++;
                 }
                 //if either side's hp is nonpositive, the battle ends 
@@ -338,19 +341,19 @@ namespace DataStrFinalProject
         //
         private static double ElementDamageMuliplier(string t1, string t2)
         {
-            if(t1.Equals("Sword") && t2.Equals("Bow"))
+            if(t1.Equals("Sword Man") && t2.Equals("Bow Man"))
             {
                 return 1.5;
             }
-            if (t1.Equals("Bow") && t2.Equals("Axe"))
+            if (t1.Equals("Bow Man") && t2.Equals("Axe Man"))
             {
                 return 1.5;
             }
-            if (t1.Equals("Axe") && t2.Equals("Spear"))
+            if (t1.Equals("Axe Man") && t2.Equals("Spear Man"))
             {
                 return 1.5;
             }
-            if (t1.Equals("Spear") && t2.Equals("Sword"))
+            if (t1.Equals("Spear Man") && t2.Equals("Sword Man"))
             {
                 return 1.5;
             }
