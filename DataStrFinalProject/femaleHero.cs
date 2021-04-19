@@ -19,7 +19,7 @@
         }
         string Hero.getHeroType()
         {
-            return HeroName + " " + HeroType;
+            return HeroType;
         }
         int Hero.getHeroStr()
         {

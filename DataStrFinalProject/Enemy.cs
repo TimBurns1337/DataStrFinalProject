@@ -19,9 +19,9 @@
             SPDBuff = spdBuff;
             HTHBuff = hthBuff;
             // or maybe do buff right in here 
-            //enemyModel.Strength = enemyModel.Strength + STRBuff;
-            //enemyModel.Speed = enemyModel.Speed + SPDBuff;
-            //enemyModel.Health = enemyModel.Health + HTHBuff;
+            enemyModel.Strength = enemyModel.Strength + STRBuff;
+            enemyModel.Speed = enemyModel.Speed + SPDBuff;
+            enemyModel.Health = enemyModel.Health + HTHBuff;
         }
         /*
         public void buffEnemy(EnemyModel em) // method for buffing enemies 

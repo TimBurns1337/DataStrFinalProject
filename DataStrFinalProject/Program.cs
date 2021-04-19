@@ -206,7 +206,21 @@ namespace DataStrFinalProject
             level3.Add(new Enemy(bowMan, 2, 2, 2));
             level3.Add(new Enemy(bossMan, 2, 2, 2));
 
+
+            //still trying out how to 
             Console.WriteLine("Test: "+level3[0].Strength);
+
+            Console.WriteLine("##############################################################");
+            String tester = Battle(myHero, level1[0]);
+            Console.WriteLine(tester);
+            Console.WriteLine("HEROTYPE: " + myHero.HeroType);
+            Console.WriteLine("enemyTYPE: " + level1[0].Type);
+
+            Console.WriteLine("enemy hth: "); //need a way to find enemy health.
+
+
+
+            Console.WriteLine("##############################################################");
 
             // view level enemy types 
             foreach (var item in level1)
@@ -269,27 +283,78 @@ namespace DataStrFinalProject
             Battle(myHero, level1[0]);
             
         }
-        private static void Battle(Hero myHero, Enemy enemy)
+
+
+        // auto battle, take turns to attack between hero and enemy
+        //function return a string value, "heroWin" or "enemyWin"
+        //return a collenction which has enemy information
+        private static string Battle(Hero myHero, Enemy enemy)
         {
-            int hhp = myHero.Health;
-            int ehp = enemy.Health;
-            int i = (myHero.Speed >= enemy.Speed) ? 2 : 0;
+            double hhp = myHero.Health;
+            double ehp = enemy.Health;
+            int i = (myHero.Speed >= enemy.Speed) ? 2 : 0; //test who will attack first
+            string winner = "";
+            int tick; //design a mechnism that character will attack when the number is reached bas
 
             Random rd = new Random();
 
-            do
+            double weaponModifier = ElementDamageMuliplier(myHero.HeroType, enemy.Type);
+
+            while(true)
             {
                 if (i % 2 == 0) //when i is even, which means the hero's turn to attack
                 {
-                    ehp -= myHero.Strength;
+                    int damage = (int)(myHero.Strength * (rd.Next(3, 7) / 5) * weaponModifier);
+                    ehp -= damage; // character Strength * (random strenth muliplier from 0.6X to 1.2X) * Weapon type modifier
+                    Console.WriteLine("Hero attacked and cause {0} to the enemy", damage);
                     i++;
                 }
-                if(i%2 == 1) //when i is dd, which means the enemy's turn to attack
+                else //when i is odd, which means the enemy's turn to attack
                 {
-                    hhp -= enemy.Strength;
+                    int damage = (int)(enemy.Strength * (rd.Next(3, 7) / 5) * weaponModifier);
+                    hhp -= damage;
+                    Console.WriteLine("The enemy cause {0} to our hero", damage);
                     i++;
                 }
-            } while (hhp>0 || ehp>0);
+                //if either side's hp is nonpositive, the battle ends 
+                if (ehp <= 0)
+                {
+                    Console.WriteLine("The enemy is defeated");
+                    winner = "heroWin";
+                    break;
+                }
+                else if(hhp <= 0)
+                {
+                    winner = "enemyWin";
+                    break;
+                }
+            }
+
+            return winner;
+        }
+
+
+
+        //
+        private static double ElementDamageMuliplier(string t1, string t2)
+        {
+            if(t1.Equals("Sword") && t2.Equals("Bow"))
+            {
+                return 1.5;
+            }
+            if (t1.Equals("Bow") && t2.Equals("Axe"))
+            {
+                return 1.5;
+            }
+            if (t1.Equals("Axe") && t2.Equals("Spear"))
+            {
+                return 1.5;
+            }
+            if (t1.Equals("Spear") && t2.Equals("Sword"))
+            {
+                return 1.5;
+            }
+            return 1.1;
         }
     }
 }
