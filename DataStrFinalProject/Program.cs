@@ -42,7 +42,7 @@ namespace DataStrFinalProject
             // when one slot is emptied it is filled from que ?
             // test whether hero helath end enemy health is zero?
 
-            /*
+
             Hero myHero;            
             
             // Main Character code below 
@@ -172,7 +172,7 @@ namespace DataStrFinalProject
             } 
             myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
 
-            */
+
             
             // Enemy Code below 
             
@@ -233,14 +233,14 @@ namespace DataStrFinalProject
 
             
 
-            /*
+        
             Console.WriteLine("###########################Test###########################");
             String tester = Battle(myHero, level2[0]);
             Console.WriteLine(tester);
             myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
             Console.WriteLine("enemyTYPE: " + level2[0].Type);
 
-            Console.WriteLine("enemy str: "+enemy.); //need a way to find enemy health.
+            //Console.WriteLine("enemy str: "+enemy.); //need a way to find enemy health.
             Console.WriteLine();
 
 
@@ -260,7 +260,7 @@ namespace DataStrFinalProject
             {
                 level1p1.Enqueue(item);
             }
-            */
+
 
             //
             // List -  add the hero and one enemy to alost at a time
@@ -316,7 +316,7 @@ namespace DataStrFinalProject
         //function return a string value, "heroWin" or "enemyWin"
         //return a collenction which has enemy information
 
-        /*
+        
         private static string Battle(Hero myHero, Enemy enemy)
         {
             double hhp = myHero.Health;
@@ -365,12 +365,11 @@ namespace DataStrFinalProject
 
             return winner;
         }
-        */
 
 
 
-        //
-        /*
+
+
         private static double ElementDamageMuliplier(string t1, string t2)
         {
             if(t1.Equals("Sword Man") && t2.Equals("Bow Man"))
@@ -391,7 +390,7 @@ namespace DataStrFinalProject
             }
             return 1.1;
         }
-        */
+
 
     }
 }
