@@ -190,10 +190,10 @@ namespace DataStrFinalProject
             List<Enemy> level3 = new List<Enemy>();
 
             level1.Add(new Enemy(spearMan, 1, 1, 1)); // are modifers to strength, speed and health ???
-            level1.Add(new Enemy(axeMan, 0, 0, 0));
-            level1.Add(new Enemy(swordMan, 0, 0, 0));
-            level1.Add(new Enemy(bowMan, 0, 0, 0));
-            level1.Add(new Enemy(bossMan, 0, 0, 0)); // no mods for level 1 
+            level1.Add(new Enemy(axeMan, 1, 1, 1));
+            level1.Add(new Enemy(swordMan, 1, 1, 1));
+            level1.Add(new Enemy(bowMan, 1, 1, 1));
+            level1.Add(new Enemy(bossMan, 1, 1, 1)); // no mods for level 1 
 
             // create level 1 sprear 2 and 3 into the dictionary factory 
 
@@ -209,10 +209,10 @@ namespace DataStrFinalProject
             Console.WriteLine(" ");
 
             level2.Add(new Enemy(spearMan, 2, 2, 2)); // increase by 1 
-            level2.Add(new Enemy(axeMan, 1, 1, 1));
-            level2.Add(new Enemy(swordMan, 1, 1, 1));
-            level2.Add(new Enemy(bowMan, 1, 1, 1));
-            level2.Add(new Enemy(bossMan, 1, 1, 1));
+            level2.Add(new Enemy(axeMan, 2, 2, 2));
+            level2.Add(new Enemy(swordMan, 2, 2, 2));
+            level2.Add(new Enemy(bowMan, 2, 2, 2));
+            level2.Add(new Enemy(bossMan, 2, 2, 2));
 
             foreach (var item in level2)
             {
@@ -221,10 +221,10 @@ namespace DataStrFinalProject
             Console.WriteLine(" ");
 
             level3.Add(new Enemy(spearMan, 3, 3, 3)); // increase by 2 
-            level3.Add(new Enemy(axeMan, 2, 2, 2));
-            level3.Add(new Enemy(swordMan, 2, 2, 2));
-            level3.Add(new Enemy(bowMan, 2, 2, 2));
-            level3.Add(new Enemy(bossMan, 2, 2, 2));
+            level3.Add(new Enemy(axeMan, 3, 3, 3));
+            level3.Add(new Enemy(swordMan, 3, 3, 3));
+            level3.Add(new Enemy(bowMan, 3, 3, 3));
+            level3.Add(new Enemy(bossMan, 3, 3, 3));
             
             foreach (var item in level3)
             {
