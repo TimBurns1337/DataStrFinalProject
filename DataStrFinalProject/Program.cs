@@ -201,13 +201,13 @@ namespace DataStrFinalProject
             // have setters to bumb the enemies up 
 
             
-
+            /*
             foreach (var item in level1)
             {
                 Console.WriteLine("health " + item.Health + " Strength " + item.Strength + " Speed" + item.Speed);
             }
             Console.WriteLine(" ");
-
+            
             level2.Add(new Enemy(spearMan, 2, 2, 2)); // increase by 1 
             level2.Add(new Enemy(axeMan, 2, 2, 2));
             level2.Add(new Enemy(swordMan, 2, 2, 2));
@@ -220,6 +220,7 @@ namespace DataStrFinalProject
             }
             Console.WriteLine(" ");
 
+            */
             level3.Add(new Enemy(spearMan, 3, 3, 3)); // increase by 2 
             level3.Add(new Enemy(axeMan, 3, 3, 3));
             level3.Add(new Enemy(swordMan, 3, 3, 3));
@@ -229,14 +230,36 @@ namespace DataStrFinalProject
             foreach (var item in level3)
             {
                 Console.WriteLine("health " + item.Health + " Strength " + item.Strength + " Speed" + item.Speed);
-            }            
+            }  
+            
 
             
 
         
             Console.WriteLine("###########################Test###########################");
-            String tester = Battle(myHero, level2[0]);
-            Console.WriteLine(tester);
+
+            // create a loop to add enemiies into battle 
+            for (int i = 0; i <  5; i++)
+            {
+                Console.WriteLine("enemy has been queued up " + level3[i].Health);
+                string tester = Battle(myHero, level3[i]);
+                Console.WriteLine(tester);
+                Console.WriteLine("hero health " + myHero.getHeroHth()); 
+                if(myHero.getHeroHth() == 0)
+                {
+                    break;
+                }
+            }
+            
+
+            Console.WriteLine("###########################Test###########################");
+
+
+
+
+
+
+            /*
             myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
             Console.WriteLine("enemyTYPE: " + level2[0].Type);
 
@@ -261,7 +284,7 @@ namespace DataStrFinalProject
                 level1p1.Enqueue(item);
             }
 
-
+            */
             //
             // List -  add the hero and one enemy to alost at a time
             // take turns 
@@ -339,6 +362,17 @@ namespace DataStrFinalProject
                     Console.WriteLine("Hero attacked and cause {0} to the enemy", damage);
                     Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
                     i++;
+                    if (ehp <= 0)
+                    {
+                        Console.WriteLine("The enemy is defeated");
+                        winner = "heroWin";
+                        break;
+                    }
+                    else if (hhp <= 0)
+                    {
+                        winner = "enemyWin";
+                        break;
+                    }
                 }
                 else //when i is odd, which means the enemy's turn to attack
                 {
@@ -348,8 +382,25 @@ namespace DataStrFinalProject
                     Console.WriteLine("The enemy cause {0} to our hero", damage);
                     Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
                     i++;
+                    hhp = 0;
+
+                    if (ehp <= 0)
+                    {
+                        Console.WriteLine("The enemy is defeated");
+                        winner = "heroWin";
+                        break;
+                    }
+                    else if (hhp <= 0)
+                    {
+                        winner = "enemyWin";
+                        break;
+                    }
+                    // test 
+                    //hhp = 0;
+                    // kick out hero from method 
                 }
                 //if either side's hp is nonpositive, the battle ends 
+                /*
                 if (ehp <= 0)
                 {
                     Console.WriteLine("The enemy is defeated");
@@ -361,9 +412,10 @@ namespace DataStrFinalProject
                     winner = "enemyWin";
                     break;
                 }
+                */
             }
-
             return winner;
+            //return myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
         }
 
 
