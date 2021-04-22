@@ -11,7 +11,7 @@ namespace DataStrFinalProject
         //public static string Buff2;        
         static void Main(string[] args)
         {
-            //problems 
+            // problems 
             // 1) need to modify health of hero during battle 
             // 2) need to stop battle once hero health is depleted 
             // 3) make a stack of dead bodies 
