@@ -11,6 +11,11 @@ namespace DataStrFinalProject
         //public static string Buff2;        
         static void Main(string[] args)
         {
+            //problems 
+            // 1) need to modify health of hero during battle 
+            // 2) need to stop battle once hero health is depleted 
+
+
             // TEST 2
             // hi - Hello there 
             // Patterns so far 
@@ -239,6 +244,8 @@ namespace DataStrFinalProject
             Console.WriteLine("###########################Test###########################");
 
             // create a loop to add enemiies into battle 
+
+            
             for (int i = 0; i <  5; i++)
             {
                 Console.WriteLine("enemy has been queued up " + level3[i].Health);
