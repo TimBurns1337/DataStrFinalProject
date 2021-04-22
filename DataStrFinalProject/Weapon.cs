@@ -13,6 +13,7 @@
         public abstract int getHeroSpd();
         public abstract void getHeroStats(int strength, int speed, int health);
         public abstract int getHeroStr();
-        public abstract string getHeroType();
+        public abstract string getHeroType();       
+        public abstract double setHealth(double damage);
     }
 }

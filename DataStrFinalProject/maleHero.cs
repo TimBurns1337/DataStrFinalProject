@@ -39,5 +39,10 @@
         {
             return HeroName;
         }
+
+        double Hero.setHealth(double damage)
+        {
+            return Health - damage;
+        }
     }
 }

@@ -6,13 +6,17 @@ namespace DataStrFinalProject
 {
     class Battle : Hero
     {
-        Hero myhero;
+        Hero myHero;
         string Hero.HeroName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         string Hero.HeroType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         int Hero.Strength { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         int Hero.Speed { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        int Hero.Health { get => throw new NotImplementedException(); set => setHeroHth(); }
+        int Hero.Health { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
+        public Battle()
+        {
+
+        }
         int Hero.getHeroHth()
         {
             throw new NotImplementedException();
@@ -43,10 +47,19 @@ namespace DataStrFinalProject
             throw new NotImplementedException();
         }
 
-        int setHeroHth()
+        public double setHeroHth(double damage)
         {
-            return 0;
+            return myHero.Health = (int)(myHero.Health - damage);
         }
 
+        public void setHealth(int damage)
+        {
+            myHero.setHealth(damage);
+        }
+
+        public double setHealth(double damage)
+        {
+            return myHero.setHealth(damage);
+        }
     }
 }

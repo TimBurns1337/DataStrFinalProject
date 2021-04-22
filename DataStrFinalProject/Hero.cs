@@ -13,5 +13,7 @@
         int getHeroStr();
         int getHeroSpd();
         int getHeroHth();
+        double setHealth(double damage);
+        //void setHealth();
     }
 }

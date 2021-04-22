@@ -42,6 +42,12 @@
         {
             return myHero.getHeroName();
         }
+
+        public override double setHealth(double damage)
+        {
+            return myHero.Health;
+        }
+
         public override string HeroType { get => getHeroType(); set => getHeroType(); }
         public override int Strength { get => getHeroStr(); set => getHeroStr(); }
         public override int Speed { get => getHeroSpd(); set => getHeroSpd(); }

@@ -243,7 +243,7 @@ namespace DataStrFinalProject
             {
                 Console.WriteLine("enemy has been queued up " + level3[i].Health);
                 int tester = Battle(myHero, level3[i]);
-
+                Console.WriteLine(level3[i].Health);
                 Console.WriteLine(tester);
                 Console.WriteLine("hero health " + myHero.getHeroHth()); 
                 if(myHero.getHeroHth() == 0)
@@ -343,7 +343,8 @@ namespace DataStrFinalProject
         
         private static int Battle(Hero myHero, Enemy enemy)
         {
-            double hhp = myHero.Health;
+            Battle battle = new Battle();
+            //double hhp = myHero.Health;
             double ehp = enemy.Health;
             int i = (myHero.Speed >= enemy.Speed) ? 2 : 0; //test who will attack first
             string winner = "";
@@ -369,7 +370,7 @@ namespace DataStrFinalProject
                         winner = "heroWin";
                         break;
                     }
-                    else if (hhp <= 0)
+                    else if (myHero.Health <= 0)
                     {
                         winner = "enemyWin";
                         break;
@@ -379,7 +380,9 @@ namespace DataStrFinalProject
                 {
                     double random = (rd.Next(3, 7) / 5);
                     int damage = (int)(enemy.Strength * random * weaponModifier);
-                    hhp -= damage;
+                    //hhp -= damage;
+                    //battle.setHeroHth(damage);
+                    myHero.setHealth(damage);
                     Console.WriteLine("The enemy cause {0} to our hero", damage);
                     Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
                     i++;
@@ -392,14 +395,14 @@ namespace DataStrFinalProject
 
                         break;
                     }
-                    else if (hhp <= 0)
+                    else if (myHero.Health <= 0)
                     {
                         winner = "enemyWin";
                         Console.WriteLine(winner);
                         break;
                     }
 
-                    return (int)hhp;
+                    
                     // test 
                     //hhp = 0;
                     // kick out hero from method 
@@ -419,7 +422,8 @@ namespace DataStrFinalProject
                 }
                 */
             }
-            return winner;
+            return (int)myHero.Health;
+            //return winner;
             //return myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
         }
 
