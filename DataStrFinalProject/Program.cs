@@ -42,7 +42,7 @@ namespace DataStrFinalProject
             // when one slot is emptied it is filled from que ?
             // test whether hero helath end enemy health is zero?
 
-
+            /*
             Hero myHero;            
             
             // Main Character code below 
@@ -172,6 +172,7 @@ namespace DataStrFinalProject
             } 
             myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
 
+            */
             
             // Enemy Code below 
             
@@ -188,26 +189,51 @@ namespace DataStrFinalProject
             List<Enemy> level2 = new List<Enemy>();
             List<Enemy> level3 = new List<Enemy>();
 
-            level1.Add(new Enemy(spearMan, 0, 0, 0)); // are modifers to strength, speed and health ???
+            level1.Add(new Enemy(spearMan, 1, 1, 1)); // are modifers to strength, speed and health ???
             level1.Add(new Enemy(axeMan, 0, 0, 0));
             level1.Add(new Enemy(swordMan, 0, 0, 0));
             level1.Add(new Enemy(bowMan, 0, 0, 0));
             level1.Add(new Enemy(bossMan, 0, 0, 0)); // no mods for level 1 
 
-            level2.Add(new Enemy(spearMan, 1, 1, 1)); // increase by 1
+            // create level 1 sprear 2 and 3 into the dictionary factory 
+
+            // not using all at the same time 
+            // have setters to bumb the enemies up 
+
+            
+
+            foreach (var item in level1)
+            {
+                Console.WriteLine("health " + item.Health + " Strength " + item.Strength + " Speed" + item.Speed);
+            }
+            Console.WriteLine(" ");
+
+            level2.Add(new Enemy(spearMan, 2, 2, 2)); // increase by 1 
             level2.Add(new Enemy(axeMan, 1, 1, 1));
             level2.Add(new Enemy(swordMan, 1, 1, 1));
             level2.Add(new Enemy(bowMan, 1, 1, 1));
-            level2.Add(new Enemy(bossMan, 1, 1, 1)); 
+            level2.Add(new Enemy(bossMan, 1, 1, 1));
 
-            level3.Add(new Enemy(spearMan, 2, 2, 2)); // increase by 2 
+            foreach (var item in level2)
+            {
+                Console.WriteLine("health " + item.Health + " Strength " + item.Strength + " Speed" + item.Speed);
+            }
+            Console.WriteLine(" ");
+
+            level3.Add(new Enemy(spearMan, 3, 3, 3)); // increase by 2 
             level3.Add(new Enemy(axeMan, 2, 2, 2));
             level3.Add(new Enemy(swordMan, 2, 2, 2));
             level3.Add(new Enemy(bowMan, 2, 2, 2));
             level3.Add(new Enemy(bossMan, 2, 2, 2));
+            
+            foreach (var item in level3)
+            {
+                Console.WriteLine("health " + item.Health + " Strength " + item.Strength + " Speed" + item.Speed);
+            }            
 
+            
 
-
+            /*
             Console.WriteLine("###########################Test###########################");
             String tester = Battle(myHero, level2[0]);
             Console.WriteLine(tester);
@@ -234,6 +260,7 @@ namespace DataStrFinalProject
             {
                 level1p1.Enqueue(item);
             }
+            */
 
             //
             // List -  add the hero and one enemy to alost at a time
@@ -244,7 +271,7 @@ namespace DataStrFinalProject
             // attack roll will test if its faster than the person speed value
             // roll dice for example to generate random number and if number is higher than speed then attack will hit 
             // trigger attack 
-            
+
             // attack() if value higher than spd value then it hits and clalls damage 
             // damage() random number from 10-30 taken from healthpoints of that person 
             // after beat level you will be awarede a power up - 
@@ -252,7 +279,7 @@ namespace DataStrFinalProject
 
 
 
-
+            /*
             // test to see if i can kill enemies 
             foreach (var item in level1p1)
             {
@@ -272,6 +299,7 @@ namespace DataStrFinalProject
             Console.WriteLine("You have defeated this many enemies " + defeatedEnemies.Count);
             // view all enemies defeated 
 
+            */
 
 
 
@@ -279,14 +307,16 @@ namespace DataStrFinalProject
             // decorator will be assigned 10 points for player to distrubute 
             // enemies should be standard and can add modifiers 
 
-            Battle(myHero, level1[0]);
-            
+            //Battle(myHero, level1[0]);
+
         }
 
 
         // auto battle, take turns to attack between hero and enemy
         //function return a string value, "heroWin" or "enemyWin"
         //return a collenction which has enemy information
+
+        /*
         private static string Battle(Hero myHero, Enemy enemy)
         {
             double hhp = myHero.Health;
@@ -335,10 +365,12 @@ namespace DataStrFinalProject
 
             return winner;
         }
+        */
 
 
 
         //
+        /*
         private static double ElementDamageMuliplier(string t1, string t2)
         {
             if(t1.Equals("Sword Man") && t2.Equals("Bow Man"))
@@ -359,5 +391,7 @@ namespace DataStrFinalProject
             }
             return 1.1;
         }
+        */
+
     }
 }
