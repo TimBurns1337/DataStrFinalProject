@@ -242,7 +242,8 @@ namespace DataStrFinalProject
             for (int i = 0; i <  5; i++)
             {
                 Console.WriteLine("enemy has been queued up " + level3[i].Health);
-                string tester = Battle(myHero, level3[i]);
+                int tester = Battle(myHero, level3[i]);
+
                 Console.WriteLine(tester);
                 Console.WriteLine("hero health " + myHero.getHeroHth()); 
                 if(myHero.getHeroHth() == 0)
@@ -340,7 +341,7 @@ namespace DataStrFinalProject
         //return a collenction which has enemy information
 
         
-        private static string Battle(Hero myHero, Enemy enemy)
+        private static int Battle(Hero myHero, Enemy enemy)
         {
             double hhp = myHero.Health;
             double ehp = enemy.Health;
@@ -382,19 +383,23 @@ namespace DataStrFinalProject
                     Console.WriteLine("The enemy cause {0} to our hero", damage);
                     Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
                     i++;
-                    hhp = 0;
 
                     if (ehp <= 0)
                     {
                         Console.WriteLine("The enemy is defeated");
                         winner = "heroWin";
+                        Console.WriteLine(winner);
+
                         break;
                     }
                     else if (hhp <= 0)
                     {
                         winner = "enemyWin";
+                        Console.WriteLine(winner);
                         break;
                     }
+
+                    return (int)hhp;
                     // test 
                     //hhp = 0;
                     // kick out hero from method 
