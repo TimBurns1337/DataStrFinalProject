@@ -11,9 +11,10 @@ namespace DataStrFinalProject
         //public static string Buff2;        
         static void Main(string[] args)
         {
-            //problems 
+            // problems 
             // 1) need to modify health of hero during battle 
             // 2) need to stop battle once hero health is depleted 
+            // 3) make a stack of dead bodies 
 
 
             // TEST 2
@@ -330,7 +331,7 @@ namespace DataStrFinalProject
             }
 
             // if enemy is defeated remove from que ad to array list - dead bodies 
-            ArrayList defeatedEnemies = new ArrayList();
+            stack defeatedEnemies = new stack();
             foreach (var item in level1p1)
             {
                 if (item.EnemyModel.Health == 0) // if their health is equal to zero then add to this
