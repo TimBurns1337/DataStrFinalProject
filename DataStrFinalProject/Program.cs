@@ -8,6 +8,7 @@ namespace DataStrFinalProject
     {
         public static string Weapon;
         public static string Buff1;
+        public static int health;
         //public static string Buff2;        
         static void Main(string[] args)
         {
@@ -25,7 +26,7 @@ namespace DataStrFinalProject
             // need to do observer for status changes 
 
             // Data Structure so far 
-            // Dictionary, List, ArrayList, Que (need one more at least)
+            // Dictionary, List, ArrayList, Que (need one more at least) - stack of dead bodies 
             // maybe we can create a stack or linked list for main charcter items???
             // maybe give five potions at start, one full heal, 4 25% heals that they can access
             // they can also add to this equipment list as the defeat levels / bosses and get more eq
@@ -199,160 +200,225 @@ namespace DataStrFinalProject
             level1.Add(new Enemy(axeMan, 1, 1, 1));
             level1.Add(new Enemy(swordMan, 1, 1, 1));
             level1.Add(new Enemy(bowMan, 1, 1, 1));
-            level1.Add(new Enemy(bossMan, 1, 1, 1)); // no mods for level 1 
+            level1.Add(new Enemy(bossMan, 1, 1, 1)); // no mods for level 1  
 
-            // create level 1 sprear 2 and 3 into the dictionary factory 
+            Queue level1_stage1 = new Queue();
+            Queue level1_stage2 = new Queue();
 
-            // not using all at the same time 
-            // have setters to bumb the enemies up 
-
-            
-            /*
             foreach (var item in level1)
             {
-                Console.WriteLine("health " + item.Health + " Strength " + item.Strength + " Speed" + item.Speed);
+
             }
-            Console.WriteLine(" ");
+
+            bool survive = true;
+            int counter = 0;
+            health = myHero.Health;
+            string userInput;
+            int tester;
+            // this will store heros health value and is used to reset it when battle is done 
+
+            // below is level 1
+            Console.WriteLine("Would you like to enter level 1? Type 'yes' or 'no'");
+            userInput = Console.ReadLine();     
             
-            level2.Add(new Enemy(spearMan, 2, 2, 2)); // increase by 1 
+            if (userInput == "yes")
+            {
+                do
+                {
+                    Console.WriteLine("###########################LEVEL 1 Test###########################");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("There are " + level1.Count + " enimies in this level\n");
+                    Console.WriteLine("Your heros current health is --> " + myHero.Health);
+
+                    for (int i = 0; i < level1.Count; i++)
+                    {                       
+                        counter++;
+                        Console.WriteLine("An enemy has been queued up with " + level1[i].Health + " health");
+                        Console.WriteLine("Enemy type: " + level1[i].Type);
+                        tester = Battle(myHero, level1[i]);
+                        Console.WriteLine("Number of enimies fought --> " + counter);
+                        Console.WriteLine("Your heros current health is --> " + tester);
+                        Console.WriteLine("");
+                        myHero.Health = tester;
+                        if (tester <= 0)
+                        {
+                            survive = false;
+                            Console.WriteLine("Your hero has perished :(");
+                            break;
+                        }
+                        if (counter == 5)
+                        {
+                            Console.WriteLine("You defeated the level!");
+                            survive = false;
+                            break;
+                        }
+                        Console.WriteLine("Current hero health " + myHero.Health);                        
+                    }
+                    Console.WriteLine("###########################LEVEL 1 Test###########################\n\n");
+
+
+
+                } while (survive == true);
+
+                if (counter == 5)
+                {
+                    survive = true;                    
+                    myHero.Health = health;
+                    tester = health;
+                    counter = 0;
+                    Console.WriteLine("Your survived your first battle!!!");
+                    Console.WriteLine("Your heros health has been restored --> " + myHero.Health);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Thank you for playing!");
+                Environment.Exit(0);
+            }
+
+
+
+            // level 2 starts 
+            level2.Add(new Enemy(spearMan, 2, 2, 2)); 
             level2.Add(new Enemy(axeMan, 2, 2, 2));
             level2.Add(new Enemy(swordMan, 2, 2, 2));
             level2.Add(new Enemy(bowMan, 2, 2, 2));
             level2.Add(new Enemy(bossMan, 2, 2, 2));
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Level two created");
+            Console.WriteLine("Would you like to enter level 2? Type 'yes' or 'no'");
+            userInput = Console.ReadLine();
 
-            foreach (var item in level2)
+            if (userInput == "yes")
             {
-                Console.WriteLine("health " + item.Health + " Strength " + item.Strength + " Speed" + item.Speed);
-            }
-            Console.WriteLine(" ");
-
-            */
-            //level3.Add(new Enemy(spearMan, 3, 3, 3)); // increase by 2 
-            //level3.Add(new Enemy(axeMan, 3, 3, 3));
-            //level3.Add(new Enemy(swordMan, 3, 3, 3));
-            //level3.Add(new Enemy(bowMan, 3, 3, 3));
-            //level3.Add(new Enemy(bossMan, 3, 3, 3));
-            
-            foreach (var item in level3)
-            {
-                Console.WriteLine("health " + item.Health + " Strength " + item.Strength + " Speed" + item.Speed);
-            }  
-            
-
-            
-
-        
-           
-
-            // create a loop to add enemiies into battle 
-
-            bool survive = true;
-
-            do
-            {
-                Console.WriteLine("###########################Test###########################");
-
-                for (int i = 0; i < level1.Count; i++)
+                do
                 {
-                    Console.WriteLine("enemy has been queued up " + level1[i].Health);
-                    int tester = Battle(myHero, level1[i]);
-                    Console.WriteLine(tester);
-                    myHero.Health = tester;
-                    if (tester <= 0)
+                    Console.WriteLine("###########################LEVEL 2 Test###########################");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("There are " + level2.Count + " enimies in this level\n");
+                    Console.WriteLine("Your heros current health is --> " + myHero.Health);
+
+                    for (int i = 0; i < level2.Count; i++)
                     {
-                        survive = false;
-                        Console.WriteLine("Your hero is perished");
-                        break;
+                        counter++;
+                        Console.WriteLine("An enemy has been queued up with " + level2[i].Health + " health");
+                        Console.WriteLine("Enemy type: " + level2[i].Type);
+                        tester = Battle(myHero, level2[i]);
+                        Console.WriteLine("Number of enimies fought --> " + counter);
+                        Console.WriteLine("Your heros current health is --> " + tester);
+                        Console.WriteLine("");
+                        myHero.Health = tester;
+                        if (tester <= 0)
+                        {
+                            survive = false;
+                            Console.WriteLine("Your hero has perished :(");
+                            break;
+                        }
+                        if (counter == 5)
+                        {
+                            Console.WriteLine("You defeated the level!");
+                            survive = false;
+                            break;
+                        }
+                        Console.WriteLine("Current hero health " + myHero.Health);
                     }
-            
-                    Console.WriteLine("hero health " + myHero.Health);
-                    //if(myHero.getHeroHth() == 0)
-                    //{
-                    //    break;
-                    //}
-                }
-            
-
-                Console.WriteLine("###########################Test###########################");
-
-
-            } while (survive==true);
+                    Console.WriteLine("###########################LEVEL 2 Test###########################\n\n");
 
 
 
-            /*
-            myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
-            Console.WriteLine("enemyTYPE: " + level2[0].Type);
+                } while (survive == true);
 
-            //Console.WriteLine("enemy str: "+enemy.); //need a way to find enemy health.
-            Console.WriteLine();
-
-
-
-            Console.WriteLine("##############################################################");
-
-            // view level enemy types 
-            foreach (var item in level1)
-            {
-                Console.WriteLine(item.EnemyModel.Type);
-            }
-
-
-            // break levels into sub levels 
-            Queue<Enemy> level1p1 = new Queue<Enemy>();
-            foreach (var item in level1)
-            {
-                level1p1.Enqueue(item);
-            }
-
-            */
-            //
-            // List -  add the hero and one enemy to alost at a time
-            // take turns 
-            // do while perosn has health 
-            // read line (attack or heal)
-            // attack roll and damage roll 
-            // attack roll will test if its faster than the person speed value
-            // roll dice for example to generate random number and if number is higher than speed then attack will hit 
-            // trigger attack 
-
-            // attack() if value higher than spd value then it hits and clalls damage 
-            // damage() random number from 10-30 taken from healthpoints of that person 
-            // after beat level you will be awarede a power up - 
-            // random bonus to hth spd or str 
-
-
-
-            /*
-            // test to see if i can kill enemies 
-            foreach (var item in level1p1)
-            {
-                item.EnemyModel.Health = 0;
-            }
-
-            // if enemy is defeated remove from que ad to array list - dead bodies 
-            stack defeatedEnemies = new stack();
-            foreach (var item in level1p1)
-            {
-                if (item.EnemyModel.Health == 0) // if their health is equal to zero then add to this
+                if (counter == 5)
                 {
-                    defeatedEnemies.Add(item);
+                    survive = true;
+                    myHero.Health = health;
+                    tester = health;
+                    userInput = "no";
+                    counter = 0;
+                    Console.WriteLine("Your survived your second battle!!!");
+                    Console.WriteLine("Your heros health has been restored --> " + myHero.Health);
                 }
             }
+            else
+            {
+                Console.WriteLine("Thank you for playing!");
+                Environment.Exit(0);
+            }
 
-            Console.WriteLine("You have defeated this many enemies " + defeatedEnemies.Count);
-            // view all enemies defeated 
+            level3.Add(new Enemy(spearMan, 3, 3, 3)); // increase by 2 
+            level3.Add(new Enemy(axeMan, 3, 3, 3));
+            level3.Add(new Enemy(swordMan, 3, 3, 3));
+            level3.Add(new Enemy(bowMan, 3, 3, 3));
+            level3.Add(new Enemy(bossMan, 3, 3, 3));
 
-            */
+
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Level three created");
+            Console.WriteLine("Would you like to enter level 2? Type 'yes' or 'no'");
+            userInput = Console.ReadLine();
+
+            if (userInput == "yes")
+            {
+                do
+                {
+                    Console.WriteLine("###########################LEVEL 3 Test###########################");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("There are " + level3.Count + " enimies in this level\n");
+                    Console.WriteLine("Your heros current health is --> " + myHero.Health);
+
+                    for (int i = 0; i < level3.Count; i++)
+                    {
+                        counter++;
+                        Console.WriteLine("An enemy has been queued up with " + level3[i].Health + " health");
+                        Console.WriteLine("Enemy type: " + level3[i].Type);
+                        tester = Battle(myHero, level3[i]);
+                        Console.WriteLine("Number of enimies fought --> " + counter);
+                        Console.WriteLine("Your heros current health is --> " + tester);
+                        Console.WriteLine("");
+                        myHero.Health = tester;
+                        if (tester <= 0)
+                        {
+                            survive = false;
+                            Console.WriteLine("Your hero has perished :(");
+                            break;
+                        }
+                        if (counter == 5)
+                        {
+                            Console.WriteLine("You defeated the level!");
+                            survive = false;
+                            break;
+                        }
+                        Console.WriteLine("Current hero health " + myHero.Health);
+                    }
+                    Console.WriteLine("###########################LEVEL 3 Test###########################\n\n");
 
 
 
-            // levae decorator part for custimazation of main character, will starts with 5 strength, health speed for example 
-            // decorator will be assigned 10 points for player to distrubute 
-            // enemies should be standard and can add modifiers 
+                } while (survive == true);
 
-            //Battle(myHero, level1[0]);
+                if (counter == 5)
+                {
+                    survive = true;
+                    myHero.Health = health;
+                    tester = health;
+                    userInput = "no";
+                    counter = 0;
+                    Console.WriteLine("Your survived your third battle!!!");
+                    Console.WriteLine("Congratulations! & Thanks for playing!");
+                    //Console.WriteLine("Your heros health has been restored --> " + myHero.Health);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Thank you for playing!");
+                Environment.Exit(0);
+            }
 
+            Console.WriteLine("Play again soon!");
         }
 
 
@@ -360,7 +426,7 @@ namespace DataStrFinalProject
         //function return a string value, "heroWin" or "enemyWin"
         //return a collenction which has enemy information
 
-        
+
         private static int Battle(Hero myHero, Enemy enemy)
         {
             //Battle battle = new Battle();
