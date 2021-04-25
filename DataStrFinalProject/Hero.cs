@@ -7,13 +7,13 @@
         public int Strength { get; set; }
         public int Speed { get; set; }
         public int Health { get; set; }
-        string getHeroName();
-        void getHeroStats(int strength, int speed, int health);
-        string getHeroType();
-        int getHeroStr();
-        int getHeroSpd();
-        int getHeroHth();
-        double setHealth(double damage);
+        //string getHeroName();
+        void getHeroStats();
+        //string getHeroType();
+        //int getHeroStr();
+        //int getHeroSpd();
+        //int getHeroHth();
+        //void setHealth(int hp);
         //void setHealth();
     }
 }

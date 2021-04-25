@@ -66,9 +66,9 @@ namespace DataStrFinalProject
                 }
                 if (sex == "f")
                 {
-                    myHero = new femaleHero(name);                    
+                    myHero = new femaleHero(name);
                     break;
-                }                
+                }
                 else
                 {
                     Console.WriteLine("Invalid selection, please try again");
@@ -106,14 +106,14 @@ namespace DataStrFinalProject
                     myHero = new Bow(myHero);
                     Weapon = weapon;
                     break;
-                }   
+                }
                 else 
                 {
                     Console.WriteLine("Invalid selection, please try again"); 
                 }
             }
 
-            myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
+            myHero.getHeroStats();
 
             Console.WriteLine("Choose first of two buffs to add to your character");
             Console.WriteLine("Choose from the below\n'Unyielding strength' (+25 str) - type str\n" +
@@ -143,7 +143,7 @@ namespace DataStrFinalProject
                 else
                     Console.WriteLine("please make a valid selection");
             }
-            myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
+            myHero.getHeroStats();
 
 
 
@@ -175,7 +175,7 @@ namespace DataStrFinalProject
                 else
                     Console.WriteLine("please make a valid selection");
             } 
-            myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
+            myHero.getHeroStats();
 
 
             
@@ -226,11 +226,11 @@ namespace DataStrFinalProject
             Console.WriteLine(" ");
 
             */
-            level3.Add(new Enemy(spearMan, 3, 3, 3)); // increase by 2 
-            level3.Add(new Enemy(axeMan, 3, 3, 3));
-            level3.Add(new Enemy(swordMan, 3, 3, 3));
-            level3.Add(new Enemy(bowMan, 3, 3, 3));
-            level3.Add(new Enemy(bossMan, 3, 3, 3));
+            //level3.Add(new Enemy(spearMan, 3, 3, 3)); // increase by 2 
+            //level3.Add(new Enemy(axeMan, 3, 3, 3));
+            //level3.Add(new Enemy(swordMan, 3, 3, 3));
+            //level3.Add(new Enemy(bowMan, 3, 3, 3));
+            //level3.Add(new Enemy(bossMan, 3, 3, 3));
             
             foreach (var item in level3)
             {
@@ -241,29 +241,41 @@ namespace DataStrFinalProject
             
 
         
-            Console.WriteLine("###########################Test###########################");
+           
 
             // create a loop to add enemiies into battle 
 
-            
-            for (int i = 0; i <  5; i++)
+            bool survive = true;
+
+            do
             {
-                Console.WriteLine("enemy has been queued up " + level3[i].Health);
-                int tester = Battle(myHero, level3[i]);
-                Console.WriteLine(level3[i].Health);
-                Console.WriteLine(tester);
-                Console.WriteLine("hero health " + myHero.getHeroHth()); 
-                if(myHero.getHeroHth() == 0)
+                Console.WriteLine("###########################Test###########################");
+
+                for (int i = 0; i < level1.Count; i++)
                 {
-                    break;
+                    Console.WriteLine("enemy has been queued up " + level1[i].Health);
+                    int tester = Battle(myHero, level1[i]);
+                    Console.WriteLine(tester);
+                    myHero.Health = tester;
+                    if (tester <= 0)
+                    {
+                        survive = false;
+                        Console.WriteLine("Your hero is perished");
+                        break;
+                    }
+            
+                    Console.WriteLine("hero health " + myHero.Health);
+                    //if(myHero.getHeroHth() == 0)
+                    //{
+                    //    break;
+                    //}
                 }
-            }
             
 
-            Console.WriteLine("###########################Test###########################");
+                Console.WriteLine("###########################Test###########################");
 
 
-
+            } while (survive==true);
 
 
 
@@ -350,12 +362,10 @@ namespace DataStrFinalProject
         
         private static int Battle(Hero myHero, Enemy enemy)
         {
-            Battle battle = new Battle();
-            //double hhp = myHero.Health;
+            //Battle battle = new Battle();
+            double hhp = myHero.Health;
             double ehp = enemy.Health;
             int i = (myHero.Speed >= enemy.Speed) ? 2 : 0; //test who will attack first
-            string winner = "";
-            int tick; //design a mechnism that character will attack when the number is reached bas
 
             Random rd = new Random();
 
@@ -368,75 +378,52 @@ namespace DataStrFinalProject
                     double random = (double)rd.Next(3, 7) / 5;
                     int damage = (int)(myHero.Strength * random * weaponModifier);
                     ehp -= damage; // character Strength * (random strenth muliplier from 0.6X to 1.2X) * Weapon type modifier
-                    Console.WriteLine("Hero attacked and cause {0} to the enemy", damage);
-                    Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
+                    Console.WriteLine("Hero attacked and cause {0} to the enemy {1}/{2}", damage,ehp,enemy.Health);
+                    //Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
                     i++;
-                    if (ehp <= 0)
-                    {
-                        Console.WriteLine("The enemy is defeated");
-                        winner = "heroWin";
-                        break;
-                    }
-                    else if (myHero.Health <= 0)
-                    {
-                        winner = "enemyWin";
-                        break;
-                    }
                 }
                 else //when i is odd, which means the enemy's turn to attack
                 {
-                    double random = (rd.Next(3, 7) / 5);
+                    double random = (double)rd.Next(3, 7) / 5;
                     int damage = (int)(enemy.Strength * random * weaponModifier);
-                    //hhp -= damage;
+                    hhp -= damage;
                     //battle.setHeroHth(damage);
-                    myHero.setHealth(damage);
-                    Console.WriteLine("The enemy cause {0} to our hero", damage);
-                    Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
+                    //myHero.setHealth(damage);
+                    Console.WriteLine("The enemy cause {0} to our hero {1}/{2}", damage, hhp, myHero.Health);
+                    //Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
                     i++;
-
-                    if (ehp <= 0)
-                    {
-                        Console.WriteLine("The enemy is defeated");
-                        winner = "heroWin";
-                        Console.WriteLine(winner);
-
-                        break;
-                    }
-                    else if (myHero.Health <= 0)
-                    {
-                        winner = "enemyWin";
-                        Console.WriteLine(winner);
-                        break;
-                    }
-
-                    
-                    // test 
-                    //hhp = 0;
-                    // kick out hero from method 
                 }
                 //if either side's hp is nonpositive, the battle ends 
-                /*
+
                 if (ehp <= 0)
                 {
                     Console.WriteLine("The enemy is defeated");
-                    winner = "heroWin";
                     break;
                 }
-                else if(hhp <= 0)
+                else if (hhp <= 0)
                 {
-                    winner = "enemyWin";
                     break;
                 }
-                */
+
             }
-            return (int)myHero.Health;
+            return (int)hhp;
             //return winner;
             //return myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
         }
 
+        //private static void Reward(Hero myHero)
+        //{
+        //    Random rd = new Random();
+        //    int i = rd.Next(1, 4);
+        //    switch (i)
+        //    {
+        //        case 1:
 
+        //        default:
+        //            break;
+        //    }
 
-
+        //}
 
         private static double ElementDamageMuliplier(string t1, string t2)
         {

@@ -6,43 +6,48 @@
         public maleHero(string name)
         {
             HeroName = name;
+            HeroType = "";
+            Strength = 0;
+            Speed = 0;
+            Health = 0;
+
         }
 
-        public string HeroType { get; set; }
-        public int Strength { get; set; }
-        public int Speed { get; set; }
-        public int Health { get; set; }
+        public string HeroType { get; set; } // null
+        public int Strength { get; set; } // null
+        public int Speed { get; set; } // null
+        public int Health { get; set; } // null
         public string HeroName { get; set; }
 
-        public void getHeroStats(int strength, int speed, int health)
+        public void getHeroStats() // not implement anything
         {
-            
+            throw new System.NotImplementedException();
         }
-        string Hero.getHeroType()
-        {
-            return HeroName + " " + HeroType;
-        }
-        int Hero.getHeroStr()
-        {
-            return Strength;
-        }
-        int Hero.getHeroSpd()
-        {
-            return Speed;
-        }
-        int Hero.getHeroHth()
-        {
-            return Health;
-        }
+        //string Hero.getHeroType()
+        //{
+        //    return HeroName + " " + HeroType;
+        //}
+        //int Hero.getHeroStr()
+        //{
+        //    return Strength;
+        //}
+        //int Hero.getHeroSpd()
+        //{
+        //    return Speed;
+        //}
+        //int Hero.getHeroHth()
+        //{
+        //    return Health;
+        //}
 
-        string Hero.getHeroName()
-        {
-            return HeroName;
-        }
+        //string Hero.getHeroName()
+        //{
+        //    return HeroName;
+        //}
 
-        double Hero.setHealth(double damage)
-        {
-            return Health - damage;
-        }
+        //public void setHealth(int hp)
+        //{
+        //    throw new System.NotImplementedException();
+        //}
     }
 }
