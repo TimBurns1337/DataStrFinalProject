@@ -12,8 +12,9 @@ namespace DataStrFinalProject
             Speed = 0;
             Health = 0;
         }
+        public string WeaponType { get; set; } //null
 
-    public string HeroType { get; set; } // null
+        public string HeroType { get; set; } // null
     public int Strength { get; set; } // null
     public int Speed { get; set; } // null
     public int Health { get; set; } // null

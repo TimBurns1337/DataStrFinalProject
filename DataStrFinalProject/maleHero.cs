@@ -10,9 +10,10 @@
             Strength = 0;
             Speed = 0;
             Health = 0;
+            WeaponType = "";
 
         }
-
+        public string WeaponType { get; set; }
         public string HeroType { get; set; } // null
         public int Strength { get; set; } // null
         public int Speed { get; set; } // null

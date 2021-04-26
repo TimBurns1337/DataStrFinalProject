@@ -8,6 +8,8 @@
         public abstract int Health { get; set; }
         public abstract string HeroName { get; set; }
 
+        public abstract string WeaponType { get; set; }
+
         //public abstract int getHeroHth();
         //public abstract string getHeroName();
         //public abstract int getHeroSpd();

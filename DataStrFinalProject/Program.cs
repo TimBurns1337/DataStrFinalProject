@@ -271,6 +271,13 @@ namespace DataStrFinalProject
                             Environment.Exit(0);
                             break;
                         }
+                        else //if the battle is won, and hero survivedm he or she gets a reward
+                        {
+                            Random rd = new Random();
+                            int rewardType = rd.Next(1, 5);
+                            myHero = new Reward(myHero, 2); //test reward, should be random
+                            myHero.getHeroStats();
+                        }
                         if (counter == level1.Count)
                         {
                             Console.WriteLine("You defeated the stage!");

@@ -15,9 +15,10 @@ namespace DataStrFinalProject
             Speed = speed;
             Health = health;
             HeroType = type;
-            HeroName = myHero.HeroName; 
+            HeroName = myHero.HeroName;
+            WeaponType = "Sword";
         }
-
+        public override string WeaponType { get; set; }
         public override string HeroType{ get; set; } //valid
         public override int Strength { get; set; } //valid
         public override int Speed { get; set; } //valid

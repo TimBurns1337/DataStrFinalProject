@@ -13,9 +13,10 @@
             HeroType = myHero.HeroType;
             HeroName = myHero.HeroName;
             Health = myHero.Health;
+            WeaponType = myHero.WeaponType;
             //Stren = 25;
         }
-
+        public override string WeaponType { get; set; }
         public override string HeroType { get; set; }
         public override int Strength { get; set; }
         public override int Speed { get; set; }

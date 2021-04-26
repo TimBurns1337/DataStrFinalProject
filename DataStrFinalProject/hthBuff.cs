@@ -13,7 +13,10 @@
             HeroType = myHero.HeroType;
             HeroName = myHero.HeroName;
             Health = myHero.Health+25;
+            WeaponType = myHero.WeaponType;
         }
+
+        public override string WeaponType { get; set; }
 
         public override string HeroType { get; set; }
         public override int Strength { get; set; }
@@ -29,7 +32,7 @@
             //testfunc();
 
             System.Console.WriteLine("Hero Name: " + myHero.HeroName + " Hero Type: " + myHero.HeroType + " Strength:" + myHero.Strength.ToString() +
-                " Speed:" + myHero.Speed.ToString() + " Health:" + Health.ToString());
+                " Speed:" + myHero.Speed.ToString() + " Health:" + Health.ToString() + "Weapon: " + WeaponType);
         }
 
         //public override int getHeroStr()
