@@ -262,12 +262,7 @@ namespace DataStrFinalProject
                         Console.WriteLine("Your heros current health is --> " + tester);
                         Console.WriteLine("");
                         myHero.Health = tester;
-                        
-                         
-                        
-                        deadBodies.Push(level1[i]);
-                        
-                        
+                        deadBodies.Push(level1[i]); // added dead enemy to stack 
                         if (tester <= 0)
                         {
                             survive = false;
@@ -351,6 +346,7 @@ namespace DataStrFinalProject
                         Console.WriteLine("Your heros current health is --> " + tester);
                         Console.WriteLine("");
                         myHero.Health = tester;
+                        deadBodies.Push(level1[i]);
                         if (tester <= 0)
                         {
                             survive = false;
@@ -445,6 +441,7 @@ namespace DataStrFinalProject
                         Console.WriteLine("Your heros current health is --> " + tester);
                         Console.WriteLine("");
                         myHero.Health = tester;
+                        deadBodies.Push(level2[i]);
                         if (tester <= 0)
                         {
                             survive = false;
@@ -520,6 +517,7 @@ namespace DataStrFinalProject
                         Console.WriteLine("Your heros current health is --> " + tester);
                         Console.WriteLine("");
                         myHero.Health = tester;
+                        deadBodies.Push(level2[i]);
                         if (tester <= 0)
                         {
                             survive = false;
@@ -612,6 +610,7 @@ namespace DataStrFinalProject
                         Console.WriteLine("Your heros current health is --> " + tester);
                         Console.WriteLine("");
                         myHero.Health = tester;
+                        deadBodies.Push(level3[i]);
                         if (tester <= 0)
                         {
                             survive = false;
@@ -687,6 +686,7 @@ namespace DataStrFinalProject
                         Console.WriteLine("Your heros current health is --> " + tester);
                         Console.WriteLine("");
                         myHero.Health = tester;
+                        deadBodies.Push(level3[i]);
                         if (tester <= 0)
                         {
                             survive = false;
