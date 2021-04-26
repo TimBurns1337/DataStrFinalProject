@@ -616,7 +616,7 @@ namespace DataStrFinalProject
                     if (counter == level2.Count)
                     {
                         survive = true;
-                        myHero.Health = healthUpdate + 20000;
+                        myHero.Health = healthUpdate + 2000000; // made very large for testing 
                         tester = healthUpdate;
                         health = myHero.Health; // keep track of next update 
                         userInput = "no";
@@ -673,65 +673,76 @@ namespace DataStrFinalProject
             Console.WriteLine("Would you like to enter level 3 stage 1? Type 'yes' or 'no'");
             userInput = Console.ReadLine();
 
-            if (userInput == "yes")
+            while (userInput != "yes" || userInput != "no") // works but now cant escape 
             {
-                do
-                {
-                    Console.WriteLine("########################### LEVEL 3 ###########################");
-                    Console.WriteLine(" ");
-                    Console.WriteLine("There are " + level3.Count + " enimies in this level\n");
-                    Console.WriteLine("Your heros current health is --> " + myHero.Health);
 
-                    for (int i = 0; i < level3.Count; i++)
+                if (userInput == "yes")
+                {
+                    do
                     {
-                        counter++;
-                        Console.WriteLine("An enemy has been queued up with " + level3[i].Health + " health");
-                        Console.WriteLine("Enemy type: " + level3[i].Type);
-                        tester = Battle(myHero, level3[i]);
-                        Console.WriteLine("Number of enimies fought --> " + counter);
-                        Console.WriteLine("Your heros current health is --> " + tester);
-                        Console.WriteLine("");
-                        myHero.Health = tester;
-                        deadBodies.Push(level3[i]);
-                        if (tester <= 0)
+                        Console.WriteLine("########################### LEVEL 3 ###########################");
+                        Console.WriteLine(" ");
+                        Console.WriteLine("There are " + level3.Count + " enimies in this level\n");
+                        Console.WriteLine("Your heros current health is --> " + myHero.Health);
+
+                        for (int i = 0; i < level3.Count; i++)
                         {
-                            survive = false;
-                            Console.WriteLine("Your hero has perished :(");
-                            Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
-                            Environment.Exit(0);
-                            break;
+                            counter++;
+                            Console.WriteLine("An enemy has been queued up with " + level3[i].Health + " health");
+                            Console.WriteLine("Enemy type: " + level3[i].Type);
+                            tester = Battle(myHero, level3[i]);
+                            Console.WriteLine("Number of enimies fought --> " + counter);
+                            Console.WriteLine("Your heros current health is --> " + tester);
+                            Console.WriteLine("");
+                            myHero.Health = tester;
+                            deadBodies.Push(level3[i]);
+                            if (tester <= 0)
+                            {
+                                survive = false;
+                                Console.WriteLine("Your hero has perished :(");
+                                Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
+                                Environment.Exit(0);
+                                break;
+                            }
+                            if (counter == level3.Count)
+                            {
+                                Console.WriteLine("You defeated the stage!");
+                                survive = false;
+                                break;
+                            }
+                            Console.WriteLine("Current hero health " + myHero.Health);
                         }
-                        if (counter == level3.Count)
-                        {
-                            Console.WriteLine("You defeated the stage!");
-                            survive = false;
-                            break;
-                        }
-                        Console.WriteLine("Current hero health " + myHero.Health);
+                        Console.WriteLine("########################### LEVEL 3 ###########################\n\n");
+
+
+
+                    } while (survive == true);
+
+                    if (counter == level3.Count)
+                    {
+                        survive = true;
+                        myHero.Health = health;
+                        tester = health;
+                        userInput = "no";
+                        counter = 0;
+                        Console.WriteLine("Your survived your fifth battle!!!");
+                        Console.WriteLine("Your heros health has been restored --> " + myHero.Health);
+                        break;
                     }
-                    Console.WriteLine("########################### LEVEL 3 ###########################\n\n");
-
-
-
-                } while (survive == true);
-
-                if (counter == level3.Count)
-                {
-                    survive = true;
-                    myHero.Health = health;
-                    tester = health;
-                    userInput = "no";
-                    counter = 0;
-                    Console.WriteLine("Your survived your fifth battle!!!");
-                    Console.WriteLine("Your heros health has been restored --> " + myHero.Health);
                 }
-            }
-            else
-            {
-                Console.WriteLine("Thank you for playing!");
-                Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
-                Environment.Exit(0);
-            }
+                else if (userInput == "no")
+                {
+                    Console.WriteLine("Thank you for playing!");
+                    Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("Would you like to enter level 3 stage 1? Type 'yes' or 'no'");
+                    userInput = Console.ReadLine();
+                }
+            } // while loop for answers ends here 
+
             level3.Clear();
 
 
@@ -749,65 +760,76 @@ namespace DataStrFinalProject
             Console.WriteLine("Would you like to enter level 2 stage 2? Type 'yes' or 'no'");
             userInput = Console.ReadLine();
 
-            if (userInput == "yes")
+            while (userInput != "yes" || userInput != "no") // works but now cant escape 
             {
-                do
-                {
-                    Console.WriteLine("########################### LEVEL 3 ###########################");
-                    Console.WriteLine(" ");
-                    Console.WriteLine("There are " + level3.Count + " enimies in this level\n");
-                    Console.WriteLine("Your heros current health is --> " + myHero.Health);
 
-                    for (int i = 0; i < level3.Count; i++)
+                if (userInput == "yes")
+                {
+                    do
                     {
-                        counter++;
-                        Console.WriteLine("An enemy has been queued up with " + level3[i].Health + " health");
-                        Console.WriteLine("Enemy type: " + level3[i].Type);
-                        tester = Battle(myHero, level3[i]);
-                        Console.WriteLine("Number of enimies fought --> " + counter);
-                        Console.WriteLine("Your heros current health is --> " + tester);
-                        Console.WriteLine("");
-                        myHero.Health = tester;
-                        deadBodies.Push(level3[i]);
-                        if (tester <= 0)
+                        Console.WriteLine("########################### LEVEL 3 ###########################");
+                        Console.WriteLine(" ");
+                        Console.WriteLine("There are " + level3.Count + " enimies in this level\n");
+                        Console.WriteLine("Your heros current health is --> " + myHero.Health);
+
+                        for (int i = 0; i < level3.Count; i++)
                         {
-                            survive = false;
-                            Console.WriteLine("Your hero has perished :(");
-                            Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
-                            Environment.Exit(0);
-                            break;
+                            counter++;
+                            Console.WriteLine("An enemy has been queued up with " + level3[i].Health + " health");
+                            Console.WriteLine("Enemy type: " + level3[i].Type);
+                            tester = Battle(myHero, level3[i]);
+                            Console.WriteLine("Number of enimies fought --> " + counter);
+                            Console.WriteLine("Your heros current health is --> " + tester);
+                            Console.WriteLine("");
+                            myHero.Health = tester;
+                            deadBodies.Push(level3[i]);
+                            if (tester <= 0)
+                            {
+                                survive = false;
+                                Console.WriteLine("Your hero has perished :(");
+                                Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
+                                Environment.Exit(0);
+                                break;
+                            }
+                            if (counter == level3.Count)
+                            {
+                                Console.WriteLine("You defeated the stage!");
+                                survive = false;
+                                break;
+                            }
+                            Console.WriteLine("Current hero health " + myHero.Health);
                         }
-                        if (counter == level3.Count)
-                        {
-                            Console.WriteLine("You defeated the stage!");
-                            survive = false;
-                            break;
-                        }
-                        Console.WriteLine("Current hero health " + myHero.Health);
+                        Console.WriteLine("########################### LEVEL 3 ###########################\n\n");
+
+
+
+                    } while (survive == true);
+
+                    if (counter == level3.Count)
+                    {
+                        survive = true;
+                        myHero.Health = health;
+                        tester = health;
+                        userInput = "no";
+                        counter = 0;
+                        Console.WriteLine("Your survived your sixth battle!!!");
+                        Console.WriteLine("Your heros health has been restored --> " + myHero.Health);
+                        break;
                     }
-                    Console.WriteLine("########################### LEVEL 3 ###########################\n\n");
-
-
-
-                } while (survive == true);
-
-                if (counter == level3.Count)
-                {
-                    survive = true;
-                    myHero.Health = health;
-                    tester = health;
-                    userInput = "no";
-                    counter = 0;
-                    Console.WriteLine("Your survived your sixth battle!!!");
-                    Console.WriteLine("Your heros health has been restored --> " + myHero.Health);
                 }
-            }
-            else
-            {
-                Console.WriteLine("Thank you for playing!");
-                Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
-                Environment.Exit(0);
-            }
+                else if (userInput == "no")
+                {
+                    Console.WriteLine("Thank you for playing!");
+                    Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("Would you like to enter level 3 stage 2" +
+                        "? Type 'yes' or 'no'");
+                    userInput = Console.ReadLine();
+                }
+            } // while loop for answers ends here 
 
 
 
