@@ -70,7 +70,7 @@ namespace DataStrFinalProject
                 " Speed:" + Speed.ToString() + " Health:" + Health.ToString() + " Weapon: " + WeaponType +"+"+weaponLevel);
         }
         public override string WeaponType { get; set; }
-        public override string HeroType { get; set; }`
+        public override string HeroType { get; set; }
         public override int Strength { get; set; }
         public override int Speed { get; set; }
         public override int Health { get; set; }
