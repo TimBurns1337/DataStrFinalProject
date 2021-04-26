@@ -10,7 +10,7 @@ namespace DataStrFinalProject
         public static string Buff1;
         public static int health;
         public static int healthUpdate;
-        public Stack<Enemy> deadBodies = new Stack<Enemy>();
+         
         //public static string Buff2;        
         static void Main(string[] args)
         {
@@ -199,7 +199,8 @@ namespace DataStrFinalProject
             List<Enemy> level3 = new List<Enemy>();
 
             Stack<Enemy> deadBodies = new Stack<Enemy>();
-            
+            //Stack<int> deadBodies = new Stack<int>();
+
             Queue<Enemy> level1_stage1 = new Queue<Enemy>();
             Queue<Enemy> level1_stage2 = new Queue<Enemy>();
             level1_stage1.Enqueue(new Enemy(spearMan, 1, 1, 1)); // are modifers to strength, speed and health ???
@@ -261,21 +262,35 @@ namespace DataStrFinalProject
                         Console.WriteLine("Your heros current health is --> " + tester);
                         Console.WriteLine("");
                         myHero.Health = tester;
-                        if (level1[i].Health <= 0)
-                        {
-                            deadBodies.Push(level1[i]);
-                        }
+                        
+                         
+                        
+                        deadBodies.Push(level1[i]);
+                        
+                        
                         if (tester <= 0)
                         {
                             survive = false;
                             Console.WriteLine("Your hero has perished :(");
-                            Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
+                            Console.WriteLine("You have killed " + deadBodies.Count + " enemies");                            
                             Environment.Exit(0);
                             break;
                         }
                         if (counter == level1.Count)
                         {
                             Console.WriteLine("You defeated the stage!");
+                            //Console.WriteLine("You have defeated " + deadBodies.Count + " enemies");
+                            /*
+                            for(i = 0; i < level1.Count; i++)
+                            {
+                                deadBodies.Push(1);
+                                Console.WriteLine("enemy defeated and added to stack");
+                            }
+                            */
+                            foreach (var item in deadBodies)
+                            {
+                                Console.WriteLine("You deafted 1 " + item.Type);
+                            }
                             Console.WriteLine("You have defeated " + deadBodies.Count + " enemies");
                             survive = false;
                             break;
