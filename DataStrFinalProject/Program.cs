@@ -10,6 +10,7 @@ namespace DataStrFinalProject
         public static string Buff1;
         public static int health;
         public static int healthUpdate;
+        public Stack<Enemy> deadBodies = new Stack<Enemy>();
         //public static string Buff2;        
         static void Main(string[] args)
         {
@@ -196,6 +197,8 @@ namespace DataStrFinalProject
             List<Enemy> level1 = new List<Enemy>();
             List<Enemy> level2 = new List<Enemy>();
             List<Enemy> level3 = new List<Enemy>();
+
+            Stack<Enemy> deadBodies = new Stack<Enemy>();
             
             Queue<Enemy> level1_stage1 = new Queue<Enemy>();
             Queue<Enemy> level1_stage2 = new Queue<Enemy>();
@@ -258,20 +261,27 @@ namespace DataStrFinalProject
                         Console.WriteLine("Your heros current health is --> " + tester);
                         Console.WriteLine("");
                         myHero.Health = tester;
+                        if (level1[i].Health <= 0)
+                        {
+                            deadBodies.Push(level1[i]);
+                        }
                         if (tester <= 0)
                         {
                             survive = false;
                             Console.WriteLine("Your hero has perished :(");
+                            Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                             Environment.Exit(0);
                             break;
                         }
                         if (counter == level1.Count)
                         {
                             Console.WriteLine("You defeated the stage!");
+                            Console.WriteLine("You have defeated " + deadBodies.Count + " enemies");
                             survive = false;
                             break;
                         }
-                        Console.WriteLine("Current hero health " + myHero.Health);                        
+                        Console.WriteLine("Current hero health " + myHero.Health);
+                        //Console.WriteLine("You have defeated " + deadBodies.Count + " enemies");
                     }
                     Console.WriteLine("###########################LEVEL 1 Test###########################\n\n");
 
@@ -292,6 +302,7 @@ namespace DataStrFinalProject
             else
             {
                 Console.WriteLine("Thank you for playing!");
+                Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                 Environment.Exit(0);
             }
             
@@ -329,6 +340,7 @@ namespace DataStrFinalProject
                         {
                             survive = false;
                             Console.WriteLine("Your hero has perished :(");
+                            Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                             Environment.Exit(0);
                             break;
                         }
@@ -361,6 +373,7 @@ namespace DataStrFinalProject
             else
             {
                 Console.WriteLine("Thank you for playing!");
+                Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                 Environment.Exit(0);
             }
             level1.Clear();
@@ -421,6 +434,7 @@ namespace DataStrFinalProject
                         {
                             survive = false;
                             Console.WriteLine("Your hero has perished :(");
+                            Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                             Environment.Exit(0);
                             break;
                         }
@@ -452,6 +466,7 @@ namespace DataStrFinalProject
             else
             {
                 Console.WriteLine("Thank you for playing!");
+                Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                 Environment.Exit(0);
             }
             level2.Clear();
@@ -494,6 +509,7 @@ namespace DataStrFinalProject
                         {
                             survive = false;
                             Console.WriteLine("Your hero has perished :(");
+                            Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                             Environment.Exit(0);
                             break;
                         }
@@ -526,6 +542,7 @@ namespace DataStrFinalProject
             else
             {
                 Console.WriteLine("Thank you for playing!");
+                Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                 Environment.Exit(0);
             }
 
@@ -584,6 +601,7 @@ namespace DataStrFinalProject
                         {
                             survive = false;
                             Console.WriteLine("Your hero has perished :(");
+                            Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                             Environment.Exit(0);
                             break;
                         }
@@ -615,6 +633,7 @@ namespace DataStrFinalProject
             else
             {
                 Console.WriteLine("Thank you for playing!");
+                Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                 Environment.Exit(0);
             }
             level3.Clear();
@@ -657,6 +676,7 @@ namespace DataStrFinalProject
                         {
                             survive = false;
                             Console.WriteLine("Your hero has perished :(");
+                            Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                             Environment.Exit(0);
                             break;
                         }
@@ -688,6 +708,7 @@ namespace DataStrFinalProject
             else
             {
                 Console.WriteLine("Thank you for playing!");
+                Console.WriteLine("You have killed " + deadBodies.Count + " enemies");
                 Environment.Exit(0);
             }
 
@@ -814,6 +835,9 @@ namespace DataStrFinalProject
                 if (ehp <= 0)
                 {
                     Console.WriteLine("The enemy is defeated");
+                    // add to dead body stack here
+                    //deadBodies.Push(enemy.Type);
+                    //deadBodies.Push(1);
                     break;
                 }
                 else if (hhp <= 0)
