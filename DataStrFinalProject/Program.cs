@@ -275,7 +275,7 @@ namespace DataStrFinalProject
                         {
                             Random rd = new Random();
                             int rewardType = rd.Next(1, 5);
-                            myHero = new Reward(myHero, 2); //test reward, should be random
+                            myHero = new Reward(myHero, rewardType); //test reward, should be random
                             myHero.getHeroStats();
                         }
                         if (counter == level1.Count)
@@ -853,8 +853,10 @@ namespace DataStrFinalProject
                             Console.WriteLine("your Healt restore {0} HP {1}/{2}", 0.1*myHero.Health,hhp,myHero.Health);
                             i++;
                         }
-                        
-
+                        else
+                        {
+                            Console.WriteLine("you are in full health.");
+                        }                  
                     }
                     
                 }
