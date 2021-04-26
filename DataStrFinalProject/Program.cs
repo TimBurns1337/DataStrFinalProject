@@ -850,6 +850,7 @@ namespace DataStrFinalProject
             int i = (myHero.Speed >= enemy.Speed) ? 2 : 0; //test who will attack first
 
             Random rd = new Random();
+            int choice; // declared outside loops 
 
             double weaponModifier = ElementDamageMuliplier(myHero.HeroType, enemy.Type);
 
@@ -857,30 +858,42 @@ namespace DataStrFinalProject
             {
                 if (i % 2 == 0) //when i is even, which means the hero's turn
                 {
-                    Console.WriteLine("Your Turn.  Attack-1  Heal-2");
-                    int choice = Convert.ToInt32(Console.ReadLine()); // find a way to read int from console
-                    if(choice == 1)
+                    while(true)
                     {
-                        double random = (double)rd.Next(3, 7) / 5;
-                        int damage = (int)(myHero.Strength * random * weaponModifier);
-                        ehp -= damage; // character Strength * (random strenth muliplier from 0.6X to 1.2X) * Weapon type modifier
-                        Console.WriteLine("Hero attacked and cause {0} to the enemy {1}/{2}", damage, ehp, enemy.Health);
-                        //Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
-                        i++;
-                    }
-                    else if(choice == 2){
-                        if (hhp<myHero.Health)
+                        Console.WriteLine("Your Turn.  Attack-1  Heal-2");
+                        choice = Convert.ToInt32(Console.ReadLine()); // find a way to read int from console
+                        // may want to avoid this and just use string - can still take 1 or 2 kust '1' and '2'
+                        if(choice == 1)
                         {
-                            hhp += 0.1 * myHero.Health;
-                            hhp = (hhp > myHero.Health) ? myHero.Health : hhp;
-                            Console.WriteLine("your Healt restore {0} HP {1}/{2}", 0.1*myHero.Health,hhp,myHero.Health);
+                            double random = (double)rd.Next(3, 7) / 5;
+                            int damage = (int)(myHero.Strength * random * weaponModifier);
+                            ehp -= damage; // character Strength * (random strenth muliplier from 0.6X to 1.2X) * Weapon type modifier
+                            Console.WriteLine("Hero attacked and cause {0} to the enemy {1}/{2}", damage, ehp, enemy.Health);
+                            //Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
                             i++;
+                            break;
+                        }
+                        else if(choice == 2){
+                            if (hhp<myHero.Health)
+                            {
+                                hhp += 0.1 * myHero.Health;
+                                hhp = (hhp > myHero.Health) ? myHero.Health : hhp;
+                                Console.WriteLine("your Healt restore {0} HP {1}/{2}", 0.1*myHero.Health,hhp,myHero.Health);
+                                i++;
+                            }
+                            else
+                            {
+                                Console.WriteLine("you are in full health.");
+                            }
+                            break;
                         }
                         else
                         {
-                            Console.WriteLine("you are in full health.");
-                        }                  
+                            Console.WriteLine("Your Turn.  Attack-1  Heal-2");
+                            choice = Convert.ToInt32(Console.ReadLine()); // find a way to read int from console                            
+                        }
                     }
+                    
                     
                 }
                 else //when i is odd, which means the enemy's turn to attack
