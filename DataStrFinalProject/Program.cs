@@ -52,7 +52,14 @@ namespace DataStrFinalProject
             // test whether hero helath end enemy health is zero?
 
 
-            Hero myHero;            
+            Hero myHero;
+
+            //***************generate the pack(itemBox) for the hero*************
+            Item pack= new Item();
+            pack.AddItem("apple");
+            //******************************************
+
+
             
             // Main Character code below 
             Console.WriteLine("Enter your Hero Name");
@@ -288,7 +295,7 @@ namespace DataStrFinalProject
                             else //if the battle is won, and hero survivedm he or she gets a reward
                             {
                                 Random rd = new Random();
-                                int rewardType = rd.Next(1, 5);
+                                int rewardType = rd.Next(1, 6);
                                 myHero = new Reward(myHero, rewardType); //test reward, should be random
                                 myHero.getHeroStats();
                             }
@@ -844,6 +851,8 @@ namespace DataStrFinalProject
 
         private static int Battle(Hero myHero, Enemy enemy)
         {
+            //load the pack
+            Item pack = new Item();
             //Battle battle = new Battle();
             double hhp = myHero.Health;
             double ehp = enemy.Health;
@@ -861,7 +870,7 @@ namespace DataStrFinalProject
                     while(true)
                     {
                         Console.WriteLine("Your Turn.  Attack-1  Heal-2");
-                        choice = Convert.ToInt32(Console.ReadLine()); // find a way to read int from console
+                        choice = Convert.ToInt32(Console.ReadLine()); 
                         // may want to avoid this and just use string - can still take 1 or 2 kust '1' and '2'
                         if(choice == 1)
                         {
@@ -886,6 +895,12 @@ namespace DataStrFinalProject
                                 Console.WriteLine("you are in full health.");
                             }
                             break;
+                        }
+                        else if(choice == 3)
+                        {
+                            Console.Write("List of your item: ");
+                            pack.OpenItemBox();
+                            Console.WriteLine("Nothing in your backpack can help you now");
                         }
                         else
                         {

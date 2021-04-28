@@ -7,6 +7,8 @@ namespace DataStrFinalProject
     class Reward : Buffs
     {
         public static int weaponLevel=0;
+        private static int i = 1;
+        Item pack = new Item();
         public Reward(Hero myHero, int reward)
         {
             Random rd = new Random();
@@ -60,7 +62,11 @@ namespace DataStrFinalProject
                     case 4:
                         Console.WriteLine("It's an honorable fight! you bury the opponent's body and restart you jounery. ");
                         break;
-
+                    case 5:
+                        Console.WriteLine("The enemy droped an unidentified ");
+                        pack.getPack().Add("unidentified equipment *" + i.ToString());//pack is a hashset, not accepting duplicate values
+                        i++;
+                        break;
                     default:
                         break;
                 }
