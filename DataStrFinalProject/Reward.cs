@@ -53,7 +53,7 @@ namespace DataStrFinalProject
                         Console.WriteLine("It's an honorable fight! you bury the opponent's body and restart you jounery. ");
                         break;
                     case 5:
-                        Console.WriteLine("The enemy droped an unidentified item");
+                        Console.WriteLine("The enemy droped an apple");
                         pack.AddItem("apple");//pack is a hashset, not accepting duplicate values
                         i++;
                         break;

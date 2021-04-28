@@ -55,10 +55,7 @@ namespace DataStrFinalProject
 
             Hero myHero;
 
-            //***************generate the pack(itemBox) for the hero*************
-            Item pack= new Item();
-            pack.AddItem("apple");
-            //******************************************
+
 
 
             
@@ -128,6 +125,12 @@ namespace DataStrFinalProject
             }
 
             myHero.getHeroStats();
+
+            //***************generate the pack(itemBox) for the hero*************
+            Item pack = new Item();
+            pack.AddItem(myHero.WeaponType);
+            pack.AddItem("Apple");
+            //******************************************
 
             Console.WriteLine("Choose first of two buffs to add to your character");
             Console.WriteLine("Choose from the below\n'Unyielding strength' (+25 str) - type str\n" +
@@ -866,7 +869,6 @@ namespace DataStrFinalProject
             Random rd = new Random();
             string choice; // declared outside loops 
             int itemChoice;
-            bool validChoice;
             //string validChoice;
 
             double weaponModifier = ElementDamageMuliplier(myHero.HeroType, enemy.Type);
@@ -924,36 +926,37 @@ namespace DataStrFinalProject
                             Console.WriteLine("Chose your item");
                             
                             while (true)
-                            {
-                                
-                                //validChoice = Int32.TryParse(Console.ReadLine(), out itemChoice);
-                                if(validChoice = Int32.TryParse(Console.ReadLine(), out itemChoice)&& itemChoice >= pack.getPack().Count)
+                            {                                
+                                if(Int32.TryParse(Console.ReadLine(), out itemChoice))
                                 {
-                                    Console.WriteLine("Used item");
-                                    break;
+                                    if (itemChoice == 0)
+                                    {
+                                        Console.WriteLine("You can not throw your weapon away");
+                                    }
+                                    else if ((itemChoice + 1) > pack.getPack().Count)
+                                    {
+                                        Console.WriteLine("invalid choice");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        pack.UseItem(itemChoice);
+                                        myHero.Strength += 25;
+                                        myHero.Speed += 25;
+                                        Console.WriteLine("item used both your speed and strenght increase 25");
+                                        break;
+                                    }
+                                   
                                 }
-                                else
-                                {
-                                    Console.WriteLine("Invalid Input");
-                                }
-                                break;
-                                //if (!validChoice || (itemChoice>=pack.getPack().Count)) { break; }
-                                //else { Console.WriteLine("); }
-                                
-                                //validChoice = Console.ReadLine();
-
                             }
-                                                    
-                            pack.UseItem(itemChoice);                            
-                            myHero.Strength += 25;
-                            myHero.Speed += 25;
-                                //myHero.Health = health;
+                                                                             
+                            
                             Console.WriteLine("Nothing in your backpack can help you now");
                             break; 
                         }
                         else
                         {
-                            Console.WriteLine("No cheating!");                         
+                            Console.WriteLine("Invalid Choice");                         
                         }
                     }
                     

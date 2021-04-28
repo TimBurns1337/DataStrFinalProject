@@ -25,15 +25,7 @@ namespace DataStrFinalProject
         
         public void UseItem(int item)
         {
-            if (item >= pack.Count)
-            {
-                Console.WriteLine("invalid choice");
-            }
-            else
-            {
-                pack.RemoveAt(item);
-            }
-            
+           pack.RemoveAt(item);            
         }
 
         public void OpenItemBox()
