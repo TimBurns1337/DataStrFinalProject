@@ -865,6 +865,7 @@ namespace DataStrFinalProject
 
             Random rd = new Random();
             string choice; // declared outside loops 
+            int itemChoice;
 
             double weaponModifier = ElementDamageMuliplier(myHero.HeroType, enemy.Type);
 
@@ -919,14 +920,10 @@ namespace DataStrFinalProject
                             Console.Write("List of your item: ");                            
                             pack.OpenItemBox();
                             Console.WriteLine("Chose your item");
-                            string input = Console.ReadLine();                            
-                            if (input == "1")
-                            {
-                                int action = 0;
-                                pack.UseItem(action);                                
+                            Int32.TryParse(Console.ReadLine(), out itemChoice);                            
+                            pack.UseItem(itemChoice);                                
                                 myHero.Strength = 10000;
                                 //myHero.Health = health;
-                            }
                             Console.WriteLine("Nothing in your backpack can help you now");
                             break; 
                         }
