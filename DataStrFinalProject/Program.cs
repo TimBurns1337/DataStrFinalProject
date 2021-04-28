@@ -921,8 +921,8 @@ namespace DataStrFinalProject
                             pack.OpenItemBox();
                             Console.WriteLine("Chose your item");
                             Int32.TryParse(Console.ReadLine(), out itemChoice);                            
-                            pack.UseItem(itemChoice);                                
-                                myHero.Strength = 10000;
+                            pack.UseItem(itemChoice);
+                            myHero.Strength += 25;
                                 //myHero.Health = health;
                             Console.WriteLine("Nothing in your backpack can help you now");
                             break; 
