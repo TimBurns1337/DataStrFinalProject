@@ -867,6 +867,7 @@ namespace DataStrFinalProject
             string choice; // declared outside loops 
             int itemChoice;
             bool validChoice;
+            //string validChoice;
 
             double weaponModifier = ElementDamageMuliplier(myHero.HeroType, enemy.Type);
 
@@ -924,9 +925,23 @@ namespace DataStrFinalProject
                             
                             while (true)
                             {
-                                validChoice = Int32.TryParse(Console.ReadLine(), out itemChoice);
-                                if (!validChoice || (itemChoice>=pack.getPack().Count)) { break; }
-                                else { Console.WriteLine("Invalid Input"); }
+                                
+                                //validChoice = Int32.TryParse(Console.ReadLine(), out itemChoice);
+                                if(validChoice = Int32.TryParse(Console.ReadLine(), out itemChoice)&& itemChoice >= pack.getPack().Count)
+                                {
+                                    Console.WriteLine("Used item");
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid Input");
+                                }
+                                break;
+                                //if (!validChoice || (itemChoice>=pack.getPack().Count)) { break; }
+                                //else { Console.WriteLine("); }
+                                
+                                //validChoice = Console.ReadLine();
+
                             }
                                                     
                             pack.UseItem(itemChoice);                            
