@@ -54,7 +54,7 @@ namespace DataStrFinalProject
                         break;
                     case 5:
                         Console.WriteLine("The enemy droped an unidentified item");
-                        pack.getPack().Add("unidentified equipment *" + i.ToString());//pack is a hashset, not accepting duplicate values
+                        pack.AddItem("unidentified equipment ");//pack is a hashset, not accepting duplicate values
                         i++;
                         break;
                     default:

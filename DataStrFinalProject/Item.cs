@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,30 +8,39 @@ namespace DataStrFinalProject
 
     class Item 
     {
-        
-        private static HashSet<string> pack = new HashSet<string>(); //could be item objects
 
+        //private static HashSet<string> pack = new HashSet<string>(); //could be item objects
+        //private static string[] pack = new string[100];
+        private static ArrayList pack = new ArrayList();
 
-        public HashSet<string> getPack()
+        public Array getPack()
         {
-            return pack;
+            return null;
         }
 
         public void AddItem(string item)
         {
-            this.getPack().Add(item);
+            pack.Add(item);
         }
-
-        public void UseItem(string item)
+        
+        public void UseItem(int item)
         {
-            this.getPack().Remove(item);
+            pack.RemoveAt(item);
         }
 
         public void OpenItemBox()
         {
+            /*
             foreach (string item in this.getPack())
             {
                 Console.Write(item+" ");
+            }
+            */
+            int i = 0;
+            foreach (var item in pack)
+            {
+                Console.WriteLine(i + " / " + item + " ");
+                i++;
             }
             Console.WriteLine();
         }

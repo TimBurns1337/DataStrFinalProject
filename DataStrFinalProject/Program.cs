@@ -920,9 +920,10 @@ namespace DataStrFinalProject
                             pack.OpenItemBox();
                             Console.WriteLine("Chose your item");
                             string input = Console.ReadLine();                            
-                            if (input == "apple")
+                            if (input == "1")
                             {
-                                pack.UseItem(input);                                
+                                int action = 0;
+                                pack.UseItem(action);                                
                                 myHero.Strength = 10000;
                                 //myHero.Health = health;
                             }
