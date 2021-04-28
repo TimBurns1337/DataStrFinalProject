@@ -10,7 +10,8 @@ namespace DataStrFinalProject
         public static string Buff1;
         public static int health;
         public static int healthUpdate;
-         
+        public static int healthConstant;
+
         //public static string Buff2;        
         static void Main(string[] args)
         {
@@ -319,6 +320,7 @@ namespace DataStrFinalProject
                     {
                         survive = true;
                         myHero.Health = health; // resets health 
+                        healthConstant = health;
                         tester = health;
                         counter = 0;
                         Console.WriteLine("Your survived your first battle!!!");
@@ -412,6 +414,7 @@ namespace DataStrFinalProject
                         survive = true;
                         myHero.Health = health + 10000; // doing health boost here - works - made it high for testing purposes 
                         healthUpdate = myHero.Health; // keeps track of update
+                        healthConstant = healthUpdate;
                         tester = health;
                         counter = 0;
                         Console.WriteLine("Your survived your second battle!!!");
@@ -529,6 +532,7 @@ namespace DataStrFinalProject
                         survive = true;
                         myHero.Health = healthUpdate; // resets health 
                         tester = healthUpdate;
+                        healthConstant = healthUpdate;
                         counter = 0;
                         Console.WriteLine("Your survived your third battle!!!");
                         Console.WriteLine("Your heros health has been restored --> " + myHero.Health);
@@ -860,7 +864,7 @@ namespace DataStrFinalProject
             int i = (myHero.Speed >= enemy.Speed) ? 0 : 1; //test who will attack first
 
             Random rd = new Random();
-            int choice; // declared outside loops 
+            string choice; // declared outside loops 
 
             double weaponModifier = ElementDamageMuliplier(myHero.HeroType, enemy.Type);
 
@@ -871,8 +875,10 @@ namespace DataStrFinalProject
                     while(true)
                     {
                         Console.WriteLine("Your Turn.  Attack-1  Heal-2 item-3");
+                        choice = Console.ReadLine(); 
 
                         //***************************************************
+                        /*
                         while (true)
                         {
                             bool validChoice = Int32.TryParse(Console.ReadLine(), out choice);
@@ -880,10 +886,11 @@ namespace DataStrFinalProject
                             else { Console.WriteLine("Invalid Input"); }
                         }                        
                         //***********************************************
+                        */
                         
                         
                         // may want to avoid this and just use string - can still take 1 or 2 kust '1' and '2'
-                        if(choice == 1)
+                        if(choice == "1")
                         {
                             double random = (double)rd.Next(3, 7) / 5;
                             int damage = (int)(myHero.Strength * random * weaponModifier);
@@ -893,7 +900,7 @@ namespace DataStrFinalProject
                             i++;
                             break;
                         }
-                        else if(choice == 2){
+                        else if(choice == "2"){
                             if (hhp<myHero.Health)
                             {
                                 hhp += 0.1 * myHero.Health;
@@ -907,10 +914,17 @@ namespace DataStrFinalProject
                                 Console.WriteLine("you are in full health.");
                             }
                         }
-                        else if(choice == 3)
+                        else if(choice == "3")
                         {
                             Console.Write("List of your item: ");
                             pack.OpenItemBox();
+                            Console.WriteLine("use item - 1");
+                            string input = Console.ReadLine();
+                            if (input == "1")
+                            {
+                                myHero.Strength = 10000;
+                                //myHero.Health = health;
+                            }
                             Console.WriteLine("Nothing in your backpack can help you now");
                             break; 
                         }
