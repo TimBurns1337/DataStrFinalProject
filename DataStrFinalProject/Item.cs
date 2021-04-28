@@ -13,9 +13,9 @@ namespace DataStrFinalProject
         //private static string[] pack = new string[100];
         private static ArrayList pack = new ArrayList();
 
-        public Array getPack()
+        public ArrayList getPack()
         {
-            return null;
+            return pack;
         }
 
         public void AddItem(string item)
@@ -25,7 +25,15 @@ namespace DataStrFinalProject
         
         public void UseItem(int item)
         {
-            pack.RemoveAt(item);
+            if (item >= pack.Count)
+            {
+                Console.WriteLine("invalid choice");
+            }
+            else
+            {
+                pack.RemoveAt(item);
+            }
+            
         }
 
         public void OpenItemBox()
