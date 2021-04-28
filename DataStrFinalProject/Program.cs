@@ -916,12 +916,13 @@ namespace DataStrFinalProject
                         }
                         else if(choice == "3")
                         {
-                            Console.Write("List of your item: ");
+                            Console.Write("List of your item: ");                            
                             pack.OpenItemBox();
-                            Console.WriteLine("use item - 1");
-                            string input = Console.ReadLine();
-                            if (input == "1")
+                            Console.WriteLine("Chose your item");
+                            string input = Console.ReadLine();                            
+                            if (input == "apple")
                             {
+                                pack.UseItem(input);                                
                                 myHero.Strength = 10000;
                                 //myHero.Health = health;
                             }
