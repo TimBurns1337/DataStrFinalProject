@@ -844,6 +844,7 @@ namespace DataStrFinalProject
         }
 
 
+
         // auto battle, take turns to attack between hero and enemy
         //function return a string value, "heroWin" or "enemyWin"
         //return a collenction which has enemy information
@@ -856,7 +857,7 @@ namespace DataStrFinalProject
             //Battle battle = new Battle();
             double hhp = myHero.Health;
             double ehp = enemy.Health;
-            int i = (myHero.Speed >= enemy.Speed) ? 2 : 0; //test who will attack first
+            int i = (myHero.Speed >= enemy.Speed) ? 0 : 1; //test who will attack first
 
             Random rd = new Random();
             int choice; // declared outside loops 
@@ -870,7 +871,17 @@ namespace DataStrFinalProject
                     while(true)
                     {
                         Console.WriteLine("Your Turn.  Attack-1  Heal-2 item-3");
-                        choice = Convert.ToInt32(Console.ReadLine()); 
+
+                        //***************************************************
+                        while (true)
+                        {
+                            bool validChoice = Int32.TryParse(Console.ReadLine(), out choice);
+                            if (validChoice) { break; }
+                            else { Console.WriteLine("Invalid Input"); }
+                        }                        
+                        //***********************************************
+                        
+                        
                         // may want to avoid this and just use string - can still take 1 or 2 kust '1' and '2'
                         if(choice == 1)
                         {
@@ -889,23 +900,23 @@ namespace DataStrFinalProject
                                 hhp = (hhp > myHero.Health) ? myHero.Health : hhp;
                                 Console.WriteLine("your Healt restore {0} HP {1}/{2}", 0.1*myHero.Health,hhp,myHero.Health);
                                 i++;
+                                break;
                             }
                             else
                             {
                                 Console.WriteLine("you are in full health.");
                             }
-                            break;
                         }
                         else if(choice == 3)
                         {
                             Console.Write("List of your item: ");
                             pack.OpenItemBox();
                             Console.WriteLine("Nothing in your backpack can help you now");
+                            break; 
                         }
                         else
                         {
-                            Console.WriteLine("Your Turn.  Attack-1  Heal-2");
-                            choice = Convert.ToInt32(Console.ReadLine()); // find a way to read int from console                            
+                            Console.WriteLine("No cheating!");                         
                         }
                     }
                     

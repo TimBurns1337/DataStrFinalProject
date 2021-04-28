@@ -8,7 +8,7 @@ namespace DataStrFinalProject
         private static EnemyModelFactory uniqueModel = new EnemyModelFactory();
         internal static EnemyModelFactory getEnemyModelFactory()
         {
-            return uniqueModel;
+            return uniqueModel; 
         }
 
         internal IEnemyModel getEnemyModel(string type)
