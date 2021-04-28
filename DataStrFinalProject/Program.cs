@@ -869,7 +869,7 @@ namespace DataStrFinalProject
                 {
                     while(true)
                     {
-                        Console.WriteLine("Your Turn.  Attack-1  Heal-2");
+                        Console.WriteLine("Your Turn.  Attack-1  Heal-2 item-3");
                         choice = Convert.ToInt32(Console.ReadLine()); 
                         // may want to avoid this and just use string - can still take 1 or 2 kust '1' and '2'
                         if(choice == 1)
