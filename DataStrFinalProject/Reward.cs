@@ -27,18 +27,9 @@ namespace DataStrFinalProject
                 switch (reward)
                 {
                     case 1:
-                        Console.WriteLine("You loot a fine boots," +
-                            " but it does not fit your size(+25 Spd -10 HP). Do you want to equip it? yes or no");
-                        string ans = Console.ReadLine();
-                        if (ans == "yes")
-                        {
+                        Console.WriteLine("You loot a fine boots - increases your speed by 25");                                             
                             Speed += 25;
-                            Health -= 10;
-                        }
-                        else
-                        {
-                            Console.WriteLine("you silently plan to sell the boots in next town if there is one.");
-                        }
+                            //Health -= 10;                                               
                         break;
                     case 2:
                         Strength += 25;
@@ -46,15 +37,14 @@ namespace DataStrFinalProject
                         weaponLevel++;
                         break;
                     case 3:
-                        Console.WriteLine("You find some pills from the enemy body, are you gonna eat it? yes or no");
-                        string ans1 = Console.ReadLine();
+                        Console.WriteLine("You find some pills from the enemy body, and take them.");                        
                         int pill = rd.Next(1, 3);
-                        if (ans1.Equals("yes") && pill % 2 == 0)
+                        if (pill % 2 == 0)
                         {
                             Console.WriteLine("Its chocolote, and your pain is alleviated(HP +50)");
                             Health += 50;
                         }
-                        else if (ans1.Equals("yes") && pill % 2 == 1)
+                        else if (pill % 2 == 1)
                         {
                             Console.WriteLine("It's fish bait, ew~");
                         }
@@ -63,7 +53,7 @@ namespace DataStrFinalProject
                         Console.WriteLine("It's an honorable fight! you bury the opponent's body and restart you jounery. ");
                         break;
                     case 5:
-                        Console.WriteLine("The enemy droped an unidentified ");
+                        Console.WriteLine("The enemy droped an unidentified item");
                         pack.getPack().Add("unidentified equipment *" + i.ToString());//pack is a hashset, not accepting duplicate values
                         i++;
                         break;
