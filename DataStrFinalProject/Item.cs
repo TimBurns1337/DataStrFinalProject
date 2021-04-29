@@ -8,9 +8,6 @@ namespace DataStrFinalProject
 
     class Item 
     {
-
-        //private static HashSet<string> pack = new HashSet<string>(); //could be item objects
-        //private static string[] pack = new string[100];
         private static ArrayList pack = new ArrayList();
 
         public ArrayList getPack()
@@ -29,13 +26,7 @@ namespace DataStrFinalProject
         }
 
         public void OpenItemBox()
-        {
-            /*
-            foreach (string item in this.getPack())
-            {
-                Console.Write(item+" ");
-            }
-            */
+        {            
             int i = 0;
             foreach (var item in pack)
             {

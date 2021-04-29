@@ -19,19 +19,19 @@ namespace DataStrFinalProject
                 switch (type)
                 {
                     case "Spear":
-                        enemyModel = new EnemyModel("Spear Man", 10, 50, 75); // str, spd, hth 
+                        enemyModel = new EnemyModel("Spear Man", 10, 50, 45); // str, spd, hth 
                         break;
                     case "Axe":
-                        enemyModel = new EnemyModel("Axe Man", 12, 40, 85);
+                        enemyModel = new EnemyModel("Axe Man", 12, 40, 55);
                         break;
                     case "Sword":
-                        enemyModel = new EnemyModel("Sword Man", 11, 45, 80);
+                        enemyModel = new EnemyModel("Sword Man", 11, 45, 40);
                         break;
                     case "Bow":
-                        enemyModel = new EnemyModel("Bow Man", 8, 80, 50);
+                        enemyModel = new EnemyModel("Bow Man", 8, 80, 30);
                         break;
                     case "Boss":
-                        enemyModel = new EnemyModel("Boss", 20, 100, 150);
+                        enemyModel = new EnemyModel("Boss", 20, 75, 100);
                         break;
                     default:
                         enemyModel = null;
@@ -44,35 +44,7 @@ namespace DataStrFinalProject
 
         private EnemyModelFactory()
         {
-        }
-
-        //    public int getHealth(string type)
-        //    {
-        //        int health;
-        //        switch (type)
-        //        {
-        //            case "Spear":
-        //                health = 75 + Enemy.HTHBuff;
-        //                break;
-        //            case "Axe":
-        //                health = 85 + Enemy.HTHBuff;
-        //                break;
-        //            case "Sword":
-        //                health = 80 + Enemy.HTHBuff;
-        //                break;
-        //            case "Bow":
-        //                health = 50 + Enemy.HTHBuff;
-        //                break;
-        //            case "Boss":
-        //                health = 150 + Enemy.HTHBuff;
-        //                break;
-        //            default:
-        //                health = 0;
-        //                break;
-        //        }
-        //        return health;
-        //    }
-        //}
+        }      
 
         internal class EnemyModel : IEnemyModel
         {

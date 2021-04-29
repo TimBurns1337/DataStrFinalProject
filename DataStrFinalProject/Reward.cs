@@ -17,19 +17,13 @@ namespace DataStrFinalProject
             Strength = myHero.Strength;
             Speed = myHero.Speed;
             Health = myHero.Health;
-            WeaponType = myHero.WeaponType;
-
-            /*int rewardType = rd.Next(1, 5);*/ //all kind of reward, not random
-            //while (true)
-            //{
-
+            WeaponType = myHero.WeaponType; 
 
                 switch (reward)
                 {
                     case 1:
                         Console.WriteLine("You loot a fine boots - increases your speed by 25");                                             
-                            Speed += 25;
-                            //Health -= 10;                                               
+                            Speed += 25;                                                                          
                         break;
                     case 2:
                         Strength += 25;
@@ -54,14 +48,12 @@ namespace DataStrFinalProject
                         break;
                     case 5:
                         Console.WriteLine("The enemy droped an apple");
-                        pack.AddItem("apple");//pack is a hashset, not accepting duplicate values
+                        pack.AddItem("apple");
                         i++;
                         break;
                     default:
                         break;
                 }
-            //}
-
         }
 
         public override void getHeroStats()

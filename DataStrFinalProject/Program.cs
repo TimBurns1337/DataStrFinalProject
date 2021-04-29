@@ -11,63 +11,46 @@ namespace DataStrFinalProject
         public static int health;
         public static int healthUpdate;
         public static int healthConstant;
-
-        //public static string Buff2;        
+              
         static void Main(string[] args)
         {
-            // problems 
-            // 1) need to modify health of hero during battle 
-            // 2) need to stop battle once hero health is depleted 
-            // 3) make a stack of dead bodies 
+        // LIST OF ALL DATA STRUCTURES AND PATTERNS USED 
 
+        // Data Structures 
+        // Array List in item class used to store heros items 
+        // Dictionary in enemy model calss to store models of enemies 
+        // List in main class to store levels and act as a place for battle
+        // Queue in the main class to design and structure each stage in each level 
+        // Stack to store and keep track of the enmies we have defeated 
 
-            // TEST 2
-            // hi - Hello there 
-            // Patterns so far 
-            // Singleton, Factory, Flyweight, Adapter???(interface class)
-            // decorator done for main character 
-            // need to do observer for status changes 
-
-            // Data Structure so far 
-            // Dictionary, List, ArrayList, Que (need one more at least) - stack of dead bodies 
-            // maybe we can create a stack or linked list for main charcter items???
-            // maybe give five potions at start, one full heal, 4 25% heals that they can access
-            // they can also add to this equipment list as the defeat levels / bosses and get more eq
-
-            // IDEAS FOR FLOW
-            // use read line - give three option for user to enter 
-            // attack, defend(dodge), heal
-            // based on there entry changes are made 
-            // actions from enemys should be random, 
-            // need to come up with random way for them to gen actions 
-            // speed will determin which player goes first main or enemy - simple comp
-            // health, once dropped to zero, determines if you are dead or not
-            // can heal but takes a turn same as attack and defend 
-            // attack places damage on enemy, mitigated if they choose defend 
-            // defend mitages attack from enemy 
-
-
-            // NEED TO DO
-            // need to find a way in whcih they fight, maybe a array with only two indexs
-            // when one slot is emptied it is filled from que ?
-            // test whether hero helath end enemy health is zero?
-
-
-            Hero myHero;
+        // Data Patterns 
+        // Decorator : we used adapter in the hero creation so that the user can customize there hero the way they like,
+            //pick name, sex, weapons and buffs. 
+        // Adapter: we used the adapter pattern in hero and enemy creation. We made interfaces for our Hero and Enemy.
+            //This allowed use to set some methods to use for both and customize that attribute and those methods as we 
+            //saw fit.
+        // Factory : We used the factory method in the creation of enemies.This allowed us to minimize the code 
+            //required to produce lots of different enemy types easily based on the type that is passed.
+        // Singleton :  We used singleton in the enemy creation as well, to make our enemy model factory class singleton.
+            //This was we can make sure that no enemies can be created without using our unique instance of 
+            //the enemy model factory. 
+        // Flyweight: We used the flyweight method in combination with our factory method to customize the enemies 
+            //as they are being created by the factory model.This again let us cut down on the code need to create 
+            //and customize all the enemies.
 
 
 
+                       Hero myHero;
 
-            
             // Main Character code below 
             Console.WriteLine("Enter your Hero Name");
-            //string name = Console.ReadLine();
-            string name = "Hero2077";
+            string name = Console.ReadLine();
+            //string name = "Hero2077";
             Console.WriteLine("Choose your sex- m or f");
             while (true)
             {
-                //string sex = Console.ReadLine();
-                string sex = "m";
+                string sex = Console.ReadLine();
+                //string sex = "m";
                 if (sex == "m")
                 {                    
                     myHero = new maleHero(name);
@@ -91,8 +74,8 @@ namespace DataStrFinalProject
             Console.WriteLine("Choose from 'Sword', 'Spear', 'Axe', and 'Bow'");           
             while (true) 
             {
-                //string weapon = Console.ReadLine();
-                string weapon = "Sword";
+                string weapon = Console.ReadLine();
+                //string weapon = "Sword";
                 if (weapon == "Sword")
                 {
                     myHero = new Sword(myHero);
@@ -124,7 +107,7 @@ namespace DataStrFinalProject
                 }
             }
 
-            myHero.getHeroStats();
+            myHero.getHeroStats(); // show hero stats 
 
             //***************generate the pack(itemBox) for the hero*************
             Item pack = new Item();
@@ -132,13 +115,14 @@ namespace DataStrFinalProject
             pack.AddItem("Apple");
             //******************************************
 
+            // add buffs
             Console.WriteLine("Choose first of two buffs to add to your character");
             Console.WriteLine("Choose from the below\n'Unyielding strength' (+25 str) - type str\n" +
                 "'As Swift as the wind' (+25 spd) - type spd\n" + "'Holy Fortitute' (+25 hth) - type hth");
             while (true)
             {
-                //string buff1 = Console.ReadLine();
-                string buff1 = "str";
+                string buff1 = Console.ReadLine();
+                //string buff1 = "str";
                 if (buff1 == "str")
                 {
                     myHero = new strBuff(myHero);
@@ -175,24 +159,21 @@ namespace DataStrFinalProject
                 "'As Swift as the wind' (+25 spd) - type spd\n" + "'Holy Fortitute' (+25 hth) - type hth");
             while (true)
             {
-                //string buff2 = Console.ReadLine();
-                string buff2 = "hth";
+                string buff2 = Console.ReadLine();
+                //string buff2 = "hth";
                 if (buff2 == "str" && Buff1 != "str")
                 {
-                    myHero = new strBuff(myHero);
-                    //Buff2 = buff2;
+                    myHero = new strBuff(myHero);                   
                     break;
                 }
                 if (buff2 == "spd" && Buff1 != "spd")
                 {
-                    myHero = new spdBuff(myHero);
-                    //Buff2 = buff2;
+                    myHero = new spdBuff(myHero);                    
                     break;
                 }
                 if (buff2 == "hth" && Buff1 != "hth")
                 {
-                    myHero = new hthBuff(myHero);
-                    //Buff2 = buff2;
+                    myHero = new hthBuff(myHero);                    
                     break;
                 }
                 else
@@ -209,24 +190,22 @@ namespace DataStrFinalProject
 
             
             // Enemy Code below 
-            
-
             EnemyModelFactory enemy = EnemyModelFactory.getEnemyModelFactory();
 
             IEnemyModel spearMan = enemy.getEnemyModel("Spear");
             IEnemyModel axeMan = enemy.getEnemyModel("Axe");
             IEnemyModel swordMan = enemy.getEnemyModel("Sword");
             IEnemyModel bowMan = enemy.getEnemyModel("Bow");
-            IEnemyModel bossMan = enemy.getEnemyModel("Boss"); // 2x strong or some special ability ???
+            IEnemyModel bossMan = enemy.getEnemyModel("Boss"); 
+            
 
-            // list used for levels 
+            // lists used for levels 
             List<Enemy> level1 = new List<Enemy>();
             List<Enemy> level2 = new List<Enemy>();
             List<Enemy> level3 = new List<Enemy>();
 
             Stack<Enemy> deadBodies = new Stack<Enemy>();
-            //Stack<int> deadBodies = new Stack<int>();
-
+            
             Queue<Enemy> level1_stage1 = new Queue<Enemy>();
             Queue<Enemy> level1_stage2 = new Queue<Enemy>();
             level1_stage1.Enqueue(new Enemy(spearMan, 1, 1, 1)); // are modifers to strength, speed and health ???
@@ -250,13 +229,13 @@ namespace DataStrFinalProject
             foreach (var item in level1_stage1)
             {                
                 level1.Add(item);
-            }
-            
+            }            
 
-            bool survive = true;
-            int counter = 0;
+            bool survive = true; // test if hero survives after each battle
+            int counter = 0; // keep track of enemies 
             health = myHero.Health;
             healthUpdate = myHero.Health;
+            // used to keep track of health and updates 
             string userInput;
             int tester;
             // this will store heros health value and is used to reset it when battle is done 
@@ -343,7 +322,7 @@ namespace DataStrFinalProject
                     Console.WriteLine("Would you like to enter level 1 stage 1? Type 'yes' or 'no'");
                     userInput = Console.ReadLine();
                 }
-                //break;
+                
             } // end of first while loop to make sure answer match with what we want 
             
             
@@ -415,7 +394,7 @@ namespace DataStrFinalProject
                     if (counter == level1.Count)
                     {
                         survive = true;
-                        myHero.Health = health + 10000; // doing health boost here - works - made it high for testing purposes 
+                        myHero.Health = health + 1000; // doing health boost here - works - made it high for testing purposes 
                         healthUpdate = myHero.Health; // keeps track of update
                         healthConstant = healthUpdate;
                         tester = health;
@@ -438,7 +417,7 @@ namespace DataStrFinalProject
                     Console.WriteLine("Would you like to enter level 1 stage 2? Type 'yes' or 'no'");
                     userInput = Console.ReadLine();
                 }
-                //break;
+               
             } // end of first while loop to make sure answer match with what we want 
 
             level1.Clear();
@@ -554,7 +533,7 @@ namespace DataStrFinalProject
                     Console.WriteLine("Would you like to enter level 2 stage 1? Type 'yes' or 'no'");
                     userInput = Console.ReadLine();
                 }
-                //break;
+                
             } // end of first while loop to make sure answer match with what we want
 
             level2.Clear();
@@ -630,7 +609,7 @@ namespace DataStrFinalProject
                     if (counter == level2.Count)
                     {
                         survive = true;
-                        myHero.Health = healthUpdate + 2000000; // made very large for testing 
+                        myHero.Health = healthUpdate + 10000; // made very large for testing 
                         tester = healthUpdate;
                         health = myHero.Health; // keep track of next update 
                         userInput = "no";
@@ -652,7 +631,7 @@ namespace DataStrFinalProject
                     Console.WriteLine("Would you like to enter level 2 stage 2? Type 'yes' or 'no'");
                     userInput = Console.ReadLine();
                 }
-                //break;
+                
             } // end of first while loop to make sure answer match with what we want
 
 
@@ -850,13 +829,6 @@ namespace DataStrFinalProject
             Console.WriteLine("Play again soon!");
         }
 
-
-
-        // auto battle, take turns to attack between hero and enemy
-        //function return a string value, "heroWin" or "enemyWin"
-        //return a collenction which has enemy information
-
-
         private static int Battle(Hero myHero, Enemy enemy)
         {
             //load the pack
@@ -880,19 +852,7 @@ namespace DataStrFinalProject
                     while(true)
                     {
                         Console.WriteLine("Your Turn.  Attack-1  Heal-2 item-3");
-                        choice = Console.ReadLine(); 
-
-                        //***************************************************
-                        /*
-                        while (true)
-                        {
-                            bool validChoice = Int32.TryParse(Console.ReadLine(), out choice);
-                            if (validChoice) { break; }
-                            else { Console.WriteLine("Invalid Input"); }
-                        }                        
-                        //***********************************************
-                        */
-                        
+                        choice = Console.ReadLine();
                         
                         // may want to avoid this and just use string - can still take 1 or 2 kust '1' and '2'
                         if(choice == "1")
@@ -900,8 +860,7 @@ namespace DataStrFinalProject
                             double random = (double)rd.Next(3, 7) / 5;
                             int damage = (int)(myHero.Strength * random * weaponModifier);
                             ehp -= damage; // character Strength * (random strenth muliplier from 0.6X to 1.2X) * Weapon type modifier
-                            Console.WriteLine("Hero attacked and cause {0} to the enemy {1}/{2}", damage, ehp, enemy.Health);
-                            //Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
+                            Console.WriteLine("Hero attacked and cause {0} to the enemy {1}/{2}", damage, ehp, enemy.Health);                            
                             i++;
                             break;
                         }
@@ -966,21 +925,15 @@ namespace DataStrFinalProject
                 {
                     double random = (double)rd.Next(3, 7) / 5;
                     int damage = (int)(enemy.Strength * random * weaponModifier);
-                    hhp -= damage;
-                    //battle.setHeroHth(damage);
-                    //myHero.setHealth(damage);
-                    Console.WriteLine("The enemy cause {0} to our hero {1}/{2}", damage, hhp, myHero.Health);
-                    //Console.WriteLine("strength: {0} Random: {1} WeaponModifier {2}", myHero.Strength, random, weaponModifier);
+                    hhp -= damage;                    
+                    Console.WriteLine("The enemy cause {0} to our hero {1}/{2}", damage, hhp, myHero.Health);                    
                     i++;
                 }
-                //if either side's hp is nonpositive, the battle ends 
+                
 
                 if (ehp <= 0)
                 {
-                    Console.WriteLine("The enemy is defeated");
-                    // add to dead body stack here
-                    //deadBodies.Push(enemy.Type);
-                    //deadBodies.Push(1);
+                    Console.WriteLine("The enemy is defeated");                    
                     break;
                 }
                 else if (hhp <= 0)
@@ -989,24 +942,8 @@ namespace DataStrFinalProject
                 }
 
             }
-            return (int)hhp;
-            //return winner;
-            //return myHero.getHeroStats(myHero.Strength, myHero.Speed, myHero.Health);
-        }
-
-        //private static void Reward(Hero myHero)
-        //{
-        //    Random rd = new Random();
-        //    int i = rd.Next(1, 4);
-        //    switch (i)
-        //    {
-        //        case 1:
-
-        //        default:
-        //            break;
-        //    }
-
-        //}
+            return (int)hhp;            
+        }       
 
         private static double ElementDamageMuliplier(string t1, string t2)
         {
@@ -1028,7 +965,5 @@ namespace DataStrFinalProject
             }
             return 1.1;
         }
-
-
     }
 }

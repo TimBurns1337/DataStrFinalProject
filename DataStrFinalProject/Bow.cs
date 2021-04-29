@@ -3,7 +3,7 @@
     internal class Bow : Weapon
     {
         private Hero myHero;
-        private int strength = 140, speed = 120, health = 150;
+        private int strength = 140, speed = 160, health = 120;
         private string type = "Bow Man";
 
         public Bow(Hero myHero)
@@ -30,17 +30,5 @@
                 " Hero Type: " + myHero.HeroType + " Strength:" + Strength.ToString() +
                 " Speed:" + Speed.ToString() + " Health:" + Health.ToString());
         }
-
-        //public override int getHeroHth()
-        //{
-        //    return myHero.Health + hthBuff.Hth;
-        //}
-
-        //public override int getHeroSpd()
-        //{
-        //    return myHero.Speed + spdBuff.Spd;
-        //}
-
-
     }
 }

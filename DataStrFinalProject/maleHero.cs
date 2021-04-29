@@ -14,41 +14,15 @@
 
         }
         public string WeaponType { get; set; }
-        public string HeroType { get; set; } // null
-        public int Strength { get; set; } // null
-        public int Speed { get; set; } // null
-        public int Health { get; set; } // null
+        public string HeroType { get; set; } 
+        public int Strength { get; set; } 
+        public int Speed { get; set; } 
+        public int Health { get; set; } 
         public string HeroName { get; set; }
 
-        public void getHeroStats() // not implement anything
+        public void getHeroStats() 
         {
             throw new System.NotImplementedException();
-        }
-        //string Hero.getHeroType()
-        //{
-        //    return HeroName + " " + HeroType;
-        //}
-        //int Hero.getHeroStr()
-        //{
-        //    return Strength;
-        //}
-        //int Hero.getHeroSpd()
-        //{
-        //    return Speed;
-        //}
-        //int Hero.getHeroHth()
-        //{
-        //    return Health;
-        //}
-
-        //string Hero.getHeroName()
-        //{
-        //    return HeroName;
-        //}
-
-        //public void setHealth(int hp)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
+        }       
     }
 }

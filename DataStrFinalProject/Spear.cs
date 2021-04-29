@@ -3,7 +3,7 @@
     internal class Spear : Weapon
     {
         private Hero myHero;
-        private int strength = 140, speed = 120, health = 150;
+        private int strength = 150, speed = 140, health = 120;
         private string type = "Spear Man";
 
         public Spear(Hero myHero)
@@ -24,17 +24,6 @@
         public override int Speed { get; set; } //valid
         public override int Health { get; set; } //valid
         public override string HeroName { get; set; } //valid
-
-        //public override int getHeroHth()
-        //{
-        //    return myHero.Health + hthBuff.Hth;
-        //}
-
-        //public override int getHeroSpd()
-        //{
-        //    return myHero.Speed + spdBuff.Spd;
-        //}
-
         public override void getHeroStats()
         {
 
