@@ -199,13 +199,18 @@ namespace DataStrFinalProject
             IEnemyModel bossMan = enemy.getEnemyModel("Boss"); 
             
 
-            // lists used for levels 
+            // lists used for levels ?
+            //*********************************************************************************************************
+            // List - Data structure 1
             List<Enemy> level1 = new List<Enemy>();
             List<Enemy> level2 = new List<Enemy>();
             List<Enemy> level3 = new List<Enemy>();
-
+            //***********************************************************************************************************
+            // stack - data structure 2 
             Stack<Enemy> deadBodies = new Stack<Enemy>();
-            
+           
+            //***************************************************************************************************************
+            // queue - data structure 3 
             Queue<Enemy> level1_stage1 = new Queue<Enemy>();
             Queue<Enemy> level1_stage2 = new Queue<Enemy>();
             level1_stage1.Enqueue(new Enemy(spearMan, 1, 1, 1)); // are modifers to strength, speed and health ???

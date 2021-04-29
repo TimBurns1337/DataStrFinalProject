@@ -8,6 +8,7 @@ namespace DataStrFinalProject
 
     class Item 
     {
+        // array List - Data Sturture 5
         private static ArrayList pack = new ArrayList();
 
         public ArrayList getPack()

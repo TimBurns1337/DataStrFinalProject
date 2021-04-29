@@ -1,6 +1,6 @@
 ﻿namespace DataStrFinalProject
 {
-    internal interface IEnemyModel
+    internal interface IEnemyModel // adapter pattern 
     {
         public string Type { get; set; }
         public int Strength { get; set; }

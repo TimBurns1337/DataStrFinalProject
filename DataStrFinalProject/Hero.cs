@@ -1,6 +1,6 @@
 ﻿namespace DataStrFinalProject
 {
-    internal interface Hero
+    internal interface Hero // adapter pattern 
     {
         public string WeaponType { get; set; }
         public string HeroName { get; set; }
