@@ -17,7 +17,8 @@
             EnemyModel = enemyModel;
             STRBuff = strBuff;
             SPDBuff = spdBuff;
-            HTHBuff = hthBuff;            
+            HTHBuff = hthBuff;
+            // or maybe do buff right in here 
             enemyModel.Strength = enemyModel.Strength * STRBuff;
             enemyModel.Speed = enemyModel.Speed * SPDBuff;
             enemyModel.Health = enemyModel.Health * HTHBuff;

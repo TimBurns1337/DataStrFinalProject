@@ -865,7 +865,7 @@ namespace DataStrFinalProject
                             double random = (double)rd.Next(3, 7) / 5;
                             int damage = (int)(myHero.Strength * random * weaponModifier);
                             ehp -= damage; // character Strength * (random strenth muliplier from 0.6X to 1.2X) * Weapon type modifier
-                            Console.WriteLine("Hero attacked and cause {0} to the enemy {1}/{2}", damage, ehp, enemy.Health);                            
+                            Console.WriteLine("Hero attacked and cause {0} to the enemy {1}/{2}", damage, ((ehp<0) ? 0 : ehp), enemy.Health);                            
                             i++;
                             break;
                         }
